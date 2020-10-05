@@ -1,4 +1,4 @@
-# Literature
+# Examples
 
 Let’s say you are suffering from unexplained headaches that appear somewhat randomly. You suspect they may be associated with something you eat, but you’re not sure, so you've been tracking 14 weeks (98 days) worth of your own data in a spreadsheet that looks like this:
 
@@ -52,9 +52,10 @@ x <- tibble(date=seq(from = today()-weeks(14),
             icecream = sample(c(TRUE,FALSE), 7*14,
                               prob = c(.10,.90),
                               replace = TRUE),
+            z = runif(7*14, min = -2.5, max = .5) + 8,
             wine = z(0))
 
-knitr::kable( head(x,10) ) %>%
+knitr::kable( head(x,10), digits = 2) %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
 write_csv(x,"headache-variables.csv")
@@ -64,6 +65,7 @@ write_csv(x,"headache-variables.csv")
 * `headache`: a day when I have a headache
 * `icecream`: did I eat ice cream that day?
 * `wine`: Number of glasses of wine I drank.
+* `z`: Number of hours I slept that day.
 
 Based on the data collected so far, can I make any guesses about what might be driving my headaches?
 
@@ -74,21 +76,44 @@ The most obvious place to check is whether I see any patterns on the days when I
 x %>% filter(headache)  %>% kable() %>% 
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
-x %>% ggplot(aes(x=date,y=0)) + geom_point() + geom_vline(xintercept = x$date[x$headache], color = rainbow(1))
 ```
 
 
 But maybe the headache takes a day or two to kick in.  We can divide the data by week and see if we can spot any patterns in headache frequency: 
 
 ```{r, message = FALSE}
-x %>% group_by(week = ntile(date,7)) %>% summarise(sum(headache))  %>% kable() %>% 
+x %>% group_by(week = ntile(date,7)) %>% 
+  summarise(headaches = sum(headache),
+            alcohol = sum(wine),
+            icecream = sum(icecream))  %>% kable() %>% 
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
-x %>% group_by(week = ntile(date,7)) %>%  summarise(headaches = sum(headache)) %>%  ggplot(aes(x=week,y=headaches)) +  geom_bar(stat = "identity")
+
 
 ```
 
 You might see a pattern at this point
+
+## T-Testing
+
+What are the chances that the number of headaches per week is related to the amount of ice cream I eat per week?
+
+If there were a relationship between ice cream and headaches each week, I'd expect that over the weeks in this period,  the total number of headaches and the total number of ice cream days should be roughly equal.
+```{r, message = FALSE}
+
+x_week <- x %>% group_by(week = ntile(date,7)) %>% 
+  summarise(headaches = sum(headache),
+            alcohol = sum(wine),
+            icecream = sum(icecream)) 
+x_week %>% kable() %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed")) 
+
+
+with(x_week, t.test(headaches,icecream))
+
+```
+
+
 
 
 

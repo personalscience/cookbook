@@ -4,4 +4,34 @@ We describe our methods in this chapter.
 
 @roberts_self-experimentation_2004
 
+```{r child="Excel - ttest.md"}
+```
+
+
+## Rolling average
+
+**Problem** You want to take the rolling 7-day average of a series of numbers.
+
+
+```{r readHeadache, message = FALSE}
+
+headache_df <- read_csv("headache-variables.csv")
+headache_df %>% head() %>% knitr::kable()
+
+```
+
+**Solution** use the `rolling()` functions in package `zoo`:
+
+```{r rollingAveComputer}
+library(zoo)
+
+headache_df %>% 
+    mutate(sleep7A = rollapply(z,
+                               7, 
+                               function(x) {x = mean(x,na.rm = TRUE)},
+                               align = 'right',
+                               fill = NA)) %>% 
+  tail() %>% knitr::kable()
+
+```
 

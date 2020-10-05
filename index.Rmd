@@ -7,7 +7,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: "Practical techniques to apply scientific principles to your own life."
 output:
   bookdown::html_document2:
     includes:
@@ -28,6 +28,8 @@ We’ll assume some basic tools.
 
 * A spreadsheet like Microsoft Excel
 * The programming language R and the associated development environment RStudio
+
+A good introduction to R is [Hands On Programming with R](https://rstudio-education.github.io/hopr/)
 
 
 ```{r message = FALSE, warning = FALSE}
