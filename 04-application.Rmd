@@ -2,6 +2,123 @@
 
 Some _significant_ applications are demonstrated in this chapter.
 
+
+Let’s say you are suffering from unexplained headaches that appear somewhat randomly. You suspect they may be associated with something you eat, but you’re not sure, so you've been tracking 14 weeks (98 days) worth of your own data in a spreadsheet that looks like this:
+
+```{r}
+
+x <- tibble(date=seq(from = today()-weeks(14),
+                     by = "1 day", length.out = 7*14),
+            headache = sample(c(TRUE,FALSE), 7*14,
+                              prob = c(.05,.95),
+                              replace = TRUE))
+
+knitr::kable( head(x) ) %>% kableExtra::kable_styling()
+
+write_csv(x,"headache-days.csv")
+
+```
+
+You can download a copy of this file [here](./headache-days.csv)
+
+With my 14 weeks of data, we can do a few basic calculations:
+
+How frequent are my headaches?
+
+```{r, comment = ""}
+
+sum(x$headache) / length(x$headache)
+
+```
+
+## Hypothesis
+
+With the data collected and in a nice dataframe format, we can start to wonder what might be driving the headaches, and one of the first culprits to suspect might be something that I eat. It's easy to add a few more variables (columns) to the dataframe: ([download](./headache-variables.csv))
+
+```{r}
+
+z <- function(x){
+m = NULL
+for(i in 1:14){
+  m = c(c(rep(0,6),
+              floor(runif(1,min=0,max=3))),
+        m)
+}
+
+m
+}
+x <- tibble(date=seq(from = today()-weeks(14),
+                     by = "1 day", length.out = 7*14),
+            headache = sample(c(TRUE,FALSE), 7*14,
+                              prob = c(.05,.95),
+                              replace = TRUE),
+            icecream = sample(c(TRUE,FALSE), 7*14,
+                              prob = c(.10,.90),
+                              replace = TRUE),
+            z = runif(7*14, min = -2.5, max = .5) + 8,
+            wine = z(0))
+
+knitr::kable( head(x,10), digits = 2) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+write_csv(x,"headache-variables.csv")
+
+```
+
+* `headache`: a day when I have a headache
+* `icecream`: did I eat ice cream that day?
+* `wine`: Number of glasses of wine I drank.
+* `z`: Number of hours I slept that day.
+
+Based on the data collected so far, can I make any guesses about what might be driving my headaches?
+
+The most obvious place to check is whether I see any patterns on the days when I have headaches. Let's filter for headache days only:
+
+```{r, message = FALSE}
+
+x %>% filter(headache)  %>% kable() %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+```
+
+
+But maybe the headache takes a day or two to kick in.  We can divide the data by week and see if we can spot any patterns in headache frequency: 
+
+```{r, message = FALSE}
+x %>% group_by(week = ntile(date,7)) %>% 
+  summarise(headaches = sum(headache),
+            alcohol = sum(wine),
+            icecream = sum(icecream))  %>% kable() %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+
+
+```
+
+You might see a pattern at this point
+
+## T-Testing
+
+What are the chances that the number of headaches per week is related to the amount of ice cream I eat per week?
+
+If there were a relationship between ice cream and headaches each week, I'd expect that over the weeks in this period,  the total number of headaches and the total number of ice cream days should be roughly equal.
+```{r, message = FALSE}
+
+x_week <- x %>% group_by(week = ntile(date,7)) %>% 
+  summarise(headaches = sum(headache),
+            alcohol = sum(wine),
+            icecream = sum(icecream)) 
+x_week %>% kable() %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed")) 
+
+
+with(x_week, t.test(headaches,icecream))
+
+```
+
+
+
+
 ## Example one
 
 ## Example two

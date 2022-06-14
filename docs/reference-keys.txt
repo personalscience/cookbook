@@ -1,13 +1,13 @@
 prerequisites
 assumptions
 intro
-examples
-hypothesis
-t-testing
+the-principles-of-personal-science
 methods
 is-it-chance-t-test
 rolling-average
 applications
+hypothesis
+t-testing
 example-one
 example-two
 final-words

@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="examples.html"/>
-<link rel="next" href="is-it-chance-t-test.html"/>
+<link rel="prev" href="the-principles-of-personal-science.html"/>
+<link rel="next" href="applications.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -189,22 +189,20 @@ div.csl-indent {
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#assumptions"><i class="fa fa-check"></i><b>1.1</b> Assumptions</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>3</b> Examples</a>
+<li class="chapter" data-level="3" data-path="the-principles-of-personal-science.html"><a href="the-principles-of-personal-science.html"><i class="fa fa-check"></i><b>3</b> The Principles of Personal Science</a></li>
+<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="examples.html"><a href="examples.html#hypothesis"><i class="fa fa-check"></i><b>3.1</b> Hypothesis</a></li>
-<li class="chapter" data-level="3.2" data-path="examples.html"><a href="examples.html#t-testing"><i class="fa fa-check"></i><b>3.2</b> T-Testing</a></li>
+<li class="chapter" data-level="4.1" data-path="methods.html"><a href="methods.html#is-it-chance-t-test"><i class="fa fa-check"></i><b>4.1</b> Is it chance? T-Test</a></li>
+<li class="chapter" data-level="4.2" data-path="methods.html"><a href="methods.html#rolling-average"><i class="fa fa-check"></i><b>4.2</b> Rolling average</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
-<li class="chapter" data-level="5" data-path="is-it-chance-t-test.html"><a href="is-it-chance-t-test.html"><i class="fa fa-check"></i><b>5</b> Is it chance? T-Test</a>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="is-it-chance-t-test.html"><a href="is-it-chance-t-test.html#rolling-average"><i class="fa fa-check"></i><b>5.1</b> Rolling average</a></li>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#hypothesis"><i class="fa fa-check"></i><b>5.1</b> Hypothesis</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#t-testing"><i class="fa fa-check"></i><b>5.2</b> T-Testing</a></li>
+<li class="chapter" data-level="5.3" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.3</b> Example one</a></li>
+<li class="chapter" data-level="5.4" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.4</b> Example two</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>6.1</b> Example one</a></li>
-<li class="chapter" data-level="6.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>6.2</b> Example two</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
+<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/personalscience" target="blank">Personal Science</a></li>
@@ -230,6 +228,316 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 4</span> Methods<a href="methods.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We describe our methods in this chapter.</p>
 <p><span class="citation">Roberts (<a href="#ref-roberts_self-experimentation_2004" role="doc-biblioref">2004</a>)</span></p>
+<div id="is-it-chance-t-test" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Is it chance? T-Test<a href="methods.html#is-it-chance-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Problem</strong></p>
+<p>You tried an intervention and want to see if it worked. How likely is it that the results were chance?</p>
+<p><strong>Solution</strong></p>
+<p>One of the simplest tests is a “T-Test”, sometimes called a “Student T Test”.</p>
+<p>Statisticians use the concept of <em>P Value</em> to discuss the how often a result might appear to be significant even when it’s not. While this crude measure doesn’t describe all the ways something might happen due to chance, generally the lower the P Value, the better. Professional scientists, especially those who understand statistics, will get touchy if you claim a result based purely on P Values, but for Personal Science purposes, it’s a good start. There is no “correct” cutoff value that can determine the likelihood that something is due to chance alone, but traditionally people assume that anything under 0.05 deserves a closer look.</p>
+<p>Here’s an example for how to do this in Excel.</p>
+<p>Suppose you’d like to know if taking a melotonin supplement will help you sleep longer. You’ve measured your daily sleep, taking the supplements on some days (the “intervention”) and not on others (“control”).</p>
+<p>A simple spreadsheet might look like this:</p>
+<p><img src="image-20200828173214548.png" /></p>
+<p>Track your sleep under two columns: one for nights when you took the supplement, and the other for nights you didn’t.</p>
+<p>The built-in Excel statistical function <code>T.TEST</code> will calculate the P-Value when you give it two ranges, the “intervention” (nights we took melotonin) and the “control” (nights without).</p>
+<p>See the screenshot for the exact formula in this case:</p>
+<p><code>=T.TEST(array1,array2,tails,type)</code></p>
+<p>Enter a <code>1</code> for <code>tails</code> (because we’re only interested in one measurement, sleep) and a <code>2</code> for type (because in this case our samples are not of the same length).</p>
+<p>The P Value in this example, <code>0.24</code>, is above <code>0.05</code> and therefore we will assume that any difference in sleep between the nights is due to pure chance.</p>
+</div>
+<div id="rolling-average" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Rolling average<a href="methods.html#rolling-average" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Problem</strong> You want to take the rolling 7-day average of a series of numbers.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="methods.html#cb2-1" aria-hidden="true" tabindex="-1"></a>headache_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;headache-variables.csv&quot;</span>)</span>
+<span id="cb2-2"><a href="methods.html#cb2-2" aria-hidden="true" tabindex="-1"></a>headache_df <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:left;">
+headache
+</th>
+<th style="text-align:left;">
+icecream
+</th>
+<th style="text-align:right;">
+z
+</th>
+<th style="text-align:right;">
+wine
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2022-03-08
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+7.514975
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-03-09
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+6.460437
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-03-10
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+7.923533
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-03-11
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+8.146596
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-03-12
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+8.008800
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-03-13
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+7.137897
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solution</strong> use the <code>rolling()</code> functions in package <code>zoo</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="methods.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="methods.html#cb6-1" aria-hidden="true" tabindex="-1"></a>headache_df <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="methods.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sleep7A =</span> <span class="fu">rollapply</span>(z,</span>
+<span id="cb6-3"><a href="methods.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                               <span class="dv">7</span>, </span>
+<span id="cb6-4"><a href="methods.html#cb6-4" aria-hidden="true" tabindex="-1"></a>                               <span class="cf">function</span>(x) {x <span class="ot">=</span> <span class="fu">mean</span>(x,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)},</span>
+<span id="cb6-5"><a href="methods.html#cb6-5" aria-hidden="true" tabindex="-1"></a>                               <span class="at">align =</span> <span class="st">&#39;right&#39;</span>,</span>
+<span id="cb6-6"><a href="methods.html#cb6-6" aria-hidden="true" tabindex="-1"></a>                               <span class="at">fill =</span> <span class="cn">NA</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-7"><a href="methods.html#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>() <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:left;">
+headache
+</th>
+<th style="text-align:left;">
+icecream
+</th>
+<th style="text-align:right;">
+z
+</th>
+<th style="text-align:right;">
+wine
+</th>
+<th style="text-align:right;">
+sleep7A
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2022-06-08
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+6.038815
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7.353709
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-06-09
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+7.286316
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+7.218491
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-06-10
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+5.872253
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.859299
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-06-11
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+5.885233
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.522188
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-06-12
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+8.348800
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+6.617392
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2022-06-13
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+8.026825
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+6.752779
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
@@ -242,8 +550,8 @@ Roberts, Seth. 2004. <span>“Self-Experimentation as a Source of New Ideas: <sp
           </div>
         </div>
       </div>
-<a href="examples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="is-it-chance-t-test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-principles-of-personal-science.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
