@@ -1,8 +1,16 @@
 # Methods
 
-We describe our methods in this chapter.
 
-@roberts_self-experimentation_2004
+## What is a dataframe?
+
+Self-collected data is almost always best represented by a table of the variables you want to study and the values that you collected for each of those variables. The most common type of table is a spreadsheet, a specific form of which  in Personal Science we refer to as a data table or a _data frame_. Abbreviated “dataframe” or often just “df”, it’s a table of values and variables that always has the same form:
+
+* columns are variables: the parameters you want to study
+* rows are observations: each incident of data you collected.
+
+It’s important to get in the habit of this row/column approach to data collection because, as you’ll see, all of our tools assume that data will come in a dataframe format. 
+
+
 
 ```{r child="Excel - ttest.md"}
 ```
