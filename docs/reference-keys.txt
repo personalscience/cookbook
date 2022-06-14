@@ -1,0 +1,13 @@
+prerequisites
+assumptions
+intro
+examples
+hypothesis
+t-testing
+methods
+is-it-chance-t-test
+rolling-average
+applications
+example-one
+example-two
+final-words
