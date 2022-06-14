@@ -1,8 +1,10 @@
 prerequisites
 assumptions
+how-to-edit-this-book
 intro
 the-principles-of-personal-science
 methods
+what-is-a-dataframe
 is-it-chance-t-test
 rolling-average
 applications

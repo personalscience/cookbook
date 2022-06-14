@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Practical techniques to apply scientific principles to your own life." />
   
 
-<meta name="author" content="Richard Sprague" />
+<meta name="author" content="Friends of Personal Science" />
 
 
 <meta name="date" content="2022-06-14" />
@@ -187,13 +187,15 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#assumptions"><i class="fa fa-check"></i><b>1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-edit-this-book"><i class="fa fa-check"></i><b>1.2</b> How to edit this book</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="the-principles-of-personal-science.html"><a href="the-principles-of-personal-science.html"><i class="fa fa-check"></i><b>3</b> The Principles of Personal Science</a></li>
 <li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="methods.html"><a href="methods.html#is-it-chance-t-test"><i class="fa fa-check"></i><b>4.1</b> Is it chance? T-Test</a></li>
-<li class="chapter" data-level="4.2" data-path="methods.html"><a href="methods.html#rolling-average"><i class="fa fa-check"></i><b>4.2</b> Rolling average</a></li>
+<li class="chapter" data-level="4.1" data-path="methods.html"><a href="methods.html#what-is-a-dataframe"><i class="fa fa-check"></i><b>4.1</b> What is a dataframe?</a></li>
+<li class="chapter" data-level="4.2" data-path="methods.html"><a href="methods.html#is-it-chance-t-test"><i class="fa fa-check"></i><b>4.2</b> Is it chance? T-Test</a></li>
+<li class="chapter" data-level="4.3" data-path="methods.html"><a href="methods.html#rolling-average"><i class="fa fa-check"></i><b>4.3</b> Rolling average</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
 <ul>
@@ -226,10 +228,17 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="methods" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Methods<a href="methods.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>We describe our methods in this chapter.</p>
-<p><span class="citation">Roberts (<a href="#ref-roberts_self-experimentation_2004" role="doc-biblioref">2004</a>)</span></p>
-<div id="is-it-chance-t-test" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Is it chance? T-Test<a href="methods.html#is-it-chance-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-is-a-dataframe" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> What is a dataframe?<a href="methods.html#what-is-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Self-collected data is almost always best represented by a table of the variables you want to study and the values that you collected for each of those variables. The most common type of table is a spreadsheet, a specific form of which in Personal Science we refer to as a data table or a <em>data frame</em>. Abbreviated “dataframe” or often just “df”, it’s a table of values and variables that always has the same form:</p>
+<ul>
+<li>columns are variables: the parameters you want to study</li>
+<li>rows are observations: each incident of data you collected.</li>
+</ul>
+<p>It’s important to get in the habit of this row/column approach to data collection because, as you’ll see, all of our tools assume that data will come in a dataframe format.</p>
+</div>
+<div id="is-it-chance-t-test" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Is it chance? T-Test<a href="methods.html#is-it-chance-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Problem</strong></p>
 <p>You tried an intervention and want to see if it worked. How likely is it that the results were chance?</p>
 <p><strong>Solution</strong></p>
@@ -246,8 +255,8 @@ div.csl-indent {
 <p>Enter a <code>1</code> for <code>tails</code> (because we’re only interested in one measurement, sleep) and a <code>2</code> for type (because in this case our samples are not of the same length).</p>
 <p>The P Value in this example, <code>0.24</code>, is above <code>0.05</code> and therefore we will assume that any difference in sleep between the nights is due to pure chance.</p>
 </div>
-<div id="rolling-average" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Rolling average<a href="methods.html#rolling-average" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rolling-average" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Rolling average<a href="methods.html#rolling-average" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Problem</strong> You want to take the rolling 7-day average of a series of numbers.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="methods.html#cb2-1" aria-hidden="true" tabindex="-1"></a>headache_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;headache-variables.csv&quot;</span>)</span>
 <span id="cb2-2"><a href="methods.html#cb2-2" aria-hidden="true" tabindex="-1"></a>headache_df <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div>
@@ -283,7 +292,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-7.514975
+7.352620
 </td>
 <td style="text-align:right;">
 0
@@ -297,10 +306,10 @@ FALSE
 FALSE
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 <td style="text-align:right;">
-6.460437
+8.330984
 </td>
 <td style="text-align:right;">
 0
@@ -317,7 +326,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-7.923533
+7.542562
 </td>
 <td style="text-align:right;">
 0
@@ -334,7 +343,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-8.146596
+8.490124
 </td>
 <td style="text-align:right;">
 0
@@ -351,7 +360,7 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-8.008800
+8.133232
 </td>
 <td style="text-align:right;">
 0
@@ -365,10 +374,10 @@ FALSE
 FALSE
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 <td style="text-align:right;">
-7.137897
+7.026528
 </td>
 <td style="text-align:right;">
 0
@@ -425,13 +434,13 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-6.038815
+6.727889
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-7.353709
+7.325807
 </td>
 </tr>
 <tr>
@@ -442,16 +451,16 @@ FALSE
 FALSE
 </td>
 <td style="text-align:left;">
-FALSE
+TRUE
 </td>
 <td style="text-align:right;">
-7.286316
+5.706245
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-7.218491
+7.040659
 </td>
 </tr>
 <tr>
@@ -465,13 +474,13 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-5.872253
+6.269520
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-6.859299
+6.854206
 </td>
 </tr>
 <tr>
@@ -485,13 +494,13 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-5.885233
+7.015939
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-6.522188
+6.882075
 </td>
 </tr>
 <tr>
@@ -505,13 +514,13 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-8.348800
+7.982111
 </td>
 <td style="text-align:right;">
 0
 </td>
 <td style="text-align:right;">
-6.617392
+7.149014
 </td>
 </tr>
 <tr>
@@ -525,24 +534,18 @@ FALSE
 FALSE
 </td>
 <td style="text-align:right;">
-8.026825
+6.803117
 </td>
 <td style="text-align:right;">
-2
+0
 </td>
 <td style="text-align:right;">
-6.752779
+6.957848
 </td>
 </tr>
 </tbody>
 </table>
 
-</div>
-</div>
-<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-roberts_self-experimentation_2004" class="csl-entry">
-Roberts, Seth. 2004. <span>“Self-Experimentation as a Source of New Ideas: <span>Ten</span> Examples about Sleep, Mood, Health, and Weight.”</span> <a href="http://www.escholarship.org/uc/item/2xc2h866">http://www.escholarship.org/uc/item/2xc2h866</a>.
 </div>
 </div>
             </section>

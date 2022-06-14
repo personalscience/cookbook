@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Practical techniques to apply scientific principles to your own life." />
   
 
-<meta name="author" content="Richard Sprague" />
+<meta name="author" content="Friends of Personal Science" />
 
 
 <meta name="date" content="2022-06-14" />
@@ -187,13 +187,15 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#assumptions"><i class="fa fa-check"></i><b>1.1</b> Assumptions</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#how-to-edit-this-book"><i class="fa fa-check"></i><b>1.2</b> How to edit this book</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="the-principles-of-personal-science.html"><a href="the-principles-of-personal-science.html"><i class="fa fa-check"></i><b>3</b> The Principles of Personal Science</a></li>
 <li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="methods.html"><a href="methods.html#is-it-chance-t-test"><i class="fa fa-check"></i><b>4.1</b> Is it chance? T-Test</a></li>
-<li class="chapter" data-level="4.2" data-path="methods.html"><a href="methods.html#rolling-average"><i class="fa fa-check"></i><b>4.2</b> Rolling average</a></li>
+<li class="chapter" data-level="4.1" data-path="methods.html"><a href="methods.html#what-is-a-dataframe"><i class="fa fa-check"></i><b>4.1</b> What is a dataframe?</a></li>
+<li class="chapter" data-level="4.2" data-path="methods.html"><a href="methods.html#is-it-chance-t-test"><i class="fa fa-check"></i><b>4.2</b> Is it chance? T-Test</a></li>
+<li class="chapter" data-level="4.3" data-path="methods.html"><a href="methods.html#rolling-average"><i class="fa fa-check"></i><b>4.3</b> Rolling average</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
 <ul>
@@ -226,12 +228,11 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Personal Science Cookbook</h1>
-<p class="author"><em>Richard Sprague</em></p>
+<p class="author"><em>Friends of Personal Science</em></p>
 <p class="date"><em>2022-06-14</em></p>
 </div>
 <div id="prerequisites" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Prerequisites<a href="index.html#prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>This is a <em>sample</em> book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
 <div id="assumptions" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Assumptions<a href="index.html#assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ll assume some basic tools.</p>
@@ -243,15 +244,12 @@ div.csl-indent {
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
 <span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div>
-<p>What is a dataframe?</p>
-<p>Self-collected data is almost always best represented by a table of the variables you want to study and the values that you collected for each of those variables. The most common type of table is a spreadsheet, a specific form of which in Personal Science we refer to as a data table or a <em>data frame</em>. Abbreviated “dataframe” or often just “df”, it’s a table of values and variables that always has the same form:</p>
-<ul>
-<li>columns are variables: the parameters you want to study</li>
-<li>rows are observations: each incident of data you collected.</li>
-</ul>
-<p>It’s important to get in the habit of this row/column approach to data collection because, as you’ll see, all of our tools assume that data will come in a dataframe format.</p>
+</div>
+<div id="how-to-edit-this-book" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> How to edit this book<a href="index.html#how-to-edit-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
 <p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
+<p>To compile this example to PDF, you need XeLaTeX. We recommend TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
 
 </div>
 </div>
