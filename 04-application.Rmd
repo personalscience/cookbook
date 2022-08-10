@@ -23,17 +23,18 @@ You can download a copy of this file [here](./headache-days.csv)
 
 With my 14 weeks of data, we can do a few basic calculations:
 
-How frequent are my headaches?
+How frequent are my headaches? Simply total the number of headaches and divide by number of days:
 
-```{r, comment = ""}
+```{r, fig.cap= ""}
 
+# headaches per day
 sum(x$headache) / length(x$headache)
 
 ```
 
 ## Hypothesis
 
-With the data collected and in a nice dataframe format, we can start to wonder what might be driving the headaches, and one of the first culprits to suspect might be something that I eat. It's easy to add a few more variables (columns) to the dataframe: ([download](./headache-variables.csv))
+With the data collected and in a nice dataframe format, we can start to ask what might be driving the headaches. One of the first suspected culpritsmight be something that I eat. It's easy to add a few more variables (columns) to the dataframe: ([download](./headache-variables.csv))
 
 ```{r}
 
@@ -95,9 +96,13 @@ x %>% group_by(week = ntile(date,7)) %>%
 
 ```
 
-You might see a pattern at this point
+Buy simply eye-balling the data this way, you might see a pattern. For example, you might spot a week or two with an unusually large number of headaches and notice those weeks are accompanied by an unusually large consumption of some particular food.
+
+But how do you know you're not just guessing? What *looks* like a pattern might be a coincidence. To find out with more certainty, we will apply some statistics.
 
 ## T-Testing
+
+The simplest test is called a "T Test". This is a formula that can compare two equal-sized lists of numbers and return the probability that any differences between the two are the result of chance. 
 
 What are the chances that the number of headaches per week is related to the amount of ice cream I eat per week?
 
@@ -112,9 +117,11 @@ x_week %>% kable() %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed")) 
 
 
-with(x_week, t.test(headaches,icecream))
+with(x_week, t.test(headaches,icecream))[["p.value"]]
 
 ```
+
+By convention, a p-value less than 0.5 is considered statistically significant. While this is not a hard and fast rule, it's often a good place to start. A p-value greater than this is almost certainly due to chance.
 
 
 
