@@ -10,6 +10,6 @@ rolling-average
 applications
 hypothesis
 t-testing
-example-one
+data-visualization
 example-two
 final-words
