@@ -27,5 +27,8 @@ format:
     css: style.css
   pdf:
     documentclass: scrreprt
+  epub:
+    css: middleman.css
+
 
 editor: visual
