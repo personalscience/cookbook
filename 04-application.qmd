@@ -5,8 +5,13 @@ Some _significant_ applications are demonstrated in this chapter.
 
 Let’s say you are suffering from unexplained headaches that appear somewhat randomly. You suspect they may be associated with something you eat, but you’re not sure, so you've been tracking 14 weeks (98 days) worth of your own data in a spreadsheet that looks like this:
 
-```{r}
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse, quietly=TRUE)
+library(lubridate, quietly=TRUE)
 
+```
+
+```{r}
 x <- tibble(date=seq(from = today()-weeks(14),
                      by = "1 day", length.out = 7*14),
             headache = sample(c(TRUE,FALSE), 7*14,

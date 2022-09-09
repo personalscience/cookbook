@@ -22,15 +22,15 @@ It’s important to get in the habit of this row/column approach to data collect
 
 
 ```{r readHeadache, message = FALSE}
-
-headache_df <- read_csv("headache-variables.csv")
+library(tidyverse)
+headache_df <- readr::read_csv("headache-variables.csv")
 headache_df %>% head() %>% knitr::kable()
 
 ```
 
 **Solution** use the `rolling()` functions in package `zoo`:
 
-```{r rollingAveComputer}
+```{r rollingAveComputer, message = FALSE}
 library(zoo)
 
 headache_df %>% 

@@ -1,0 +1,30 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Personal Science Cookbook"
+  author: "Friends of Personal Science"
+  subtitle: "Practical techniques to apply scientific principles to your own life."
+  date: "9/9/2022"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - 02-literature.qmd
+    - 03-method.qmd
+    - 04-application.qmd
+    - 05-summary.qmd
+    - 06-references.qmd
+
+bibliography:
+  - book.bib
+
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    css: style.css
+  pdf:
+    documentclass: scrreprt
+
