@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Friends of Personal Science">
-<meta name="dcterms.date" content="2022-09-09">
-<meta name="description" content="Practical techniques to apply scientific principles to your own life.">
 
-<title>Personal Science Cookbook</title>
+<title>Personal Science Cookbook - 4&nbsp; Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,7 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./04-application.html" rel="next">
+<link href="./02-literature.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,7 +124,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -137,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Personal Science Cookbook</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methods</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -162,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Personal Science Cookbook</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Personal Science Cookbook</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -177,7 +174,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-method.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methods</span></a>
+  <a href="./03-method.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methods</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -204,11 +201,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites"><span class="toc-section-number">1</span>  Prerequisites</a>
-  <ul class="collapse">
-  <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions"><span class="toc-section-number">1.1</span>  Assumptions</a></li>
-  <li><a href="#how-to-edit-this-book" id="toc-how-to-edit-this-book" class="nav-link" data-scroll-target="#how-to-edit-this-book"><span class="toc-section-number">1.2</span>  How to edit this book</a></li>
-  </ul></li>
+  <li><a href="#what-is-a-dataframe" id="toc-what-is-a-dataframe" class="nav-link active" data-scroll-target="#what-is-a-dataframe"><span class="toc-section-number">4.1</span>  What is a dataframe?</a></li>
+  <li><a href="#is-it-chance-t-test" id="toc-is-it-chance-t-test" class="nav-link" data-scroll-target="#is-it-chance-t-test"><span class="toc-section-number">4.2</span>  Is it chance? T-Test</a></li>
+  <li><a href="#rolling-average" id="toc-rolling-average" class="nav-link" data-scroll-target="#rolling-average"><span class="toc-section-number">4.3</span>  Rolling average</a></li>
   </ul>
 </nav>
     </div>
@@ -217,62 +212,190 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Personal Science Cookbook</h1>
-<p class="subtitle lead">Practical techniques to apply scientific principles to your own life.</p>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methods</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Practical techniques to apply scientific principles to your own life.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Friends of Personal Science </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 9, 2022</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<section id="prerequisites" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Prerequisites</h1>
-<section id="assumptions" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">1.1</span> Assumptions</h2>
-<p>We’ll assume some basic tools.</p>
+<section id="what-is-a-dataframe" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="what-is-a-dataframe"><span class="header-section-number">4.1</span> What is a dataframe?</h2>
+<p>Self-collected data is almost always best represented by a table of the variables you want to study and the values that you collected for each of those variables. The most common type of table is a spreadsheet, a specific form of which in Personal Science we refer to as a data table or a <em>data frame</em>. Abbreviated “dataframe” or often just “df”, it’s a table of values and variables that always has the same form:</p>
 <ul>
-<li>A spreadsheet like Microsoft Excel</li>
-<li>The programming language R and the associated development environment RStudio</li>
+<li>columns are variables: the parameters you want to study</li>
+<li>rows are observations: each incident of data you collected.</li>
 </ul>
-<p>A good introduction to R is <a href="https://rstudio-education.github.io/hopr/">Hands On Programming with R</a></p>
+<p>It’s important to get in the habit of this row/column approach to data collection because, as you’ll see, all of our tools assume that data will come in a dataframe format.</p>
+</section>
+<section id="is-it-chance-t-test" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="is-it-chance-t-test"><span class="header-section-number">4.2</span> Is it chance? T-Test</h2>
+<p><strong>Problem</strong></p>
+<p>You tried an intervention and want to see if it worked. How likely is it that the results were chance?</p>
+<p><strong>Solution</strong></p>
+<p>One of the simplest tests is a “T-Test”, sometimes called a “Student T Test”.</p>
+<p>Statisticians use the concept of <em>P Value</em> to discuss the how often a result might appear to be significant even when it’s not. While this crude measure doesn’t describe all the ways something might happen due to chance, generally the lower the P Value, the better. Professional scientists, especially those who understand statistics, will get touchy if you claim a result based purely on P Values, but for Personal Science purposes, it’s a good start. There is no “correct” cutoff value that can determine the likelihood that something is due to chance alone, but traditionally people assume that anything under 0.05 deserves a closer look.</p>
+<p>Here’s an example for how to do this in Excel.</p>
+<p>Suppose you’d like to know if taking a melotonin supplement will help you sleep longer. You’ve measured your daily sleep, taking the supplements on some days (the “intervention”) and not on others (“control”).</p>
+<p>A simple spreadsheet might look like this:</p>
+<p><img src="image-20200828173214548.png" class="img-fluid"></p>
+<p>Track your sleep under two columns: one for nights when you took the supplement, and the other for nights you didn’t.</p>
+<p>The built-in Excel statistical function <code>T.TEST</code> will calculate the P-Value when you give it two ranges, the “intervention” (nights we took melotonin) and the “control” (nights without).</p>
+<p>See the screenshot for the exact formula in this case:</p>
+<p><code>=T.TEST(array1,array2,tails,type)</code></p>
+<p>Enter a <code>1</code> for <code>tails</code> (because we’re only interested in one measurement, sleep) and a <code>2</code> for type (because in this case our samples are not of the same length).</p>
+<p>The P Value in this example, <code>0.24</code>, is above <code>0.05</code> and therefore we will assume that any difference in sleep between the nights is due to pure chance.</p>
+</section>
+<section id="rolling-average" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="rolling-average"><span class="header-section-number">4.3</span> Rolling average</h2>
+<p><strong>Problem</strong> You want to take the rolling 7-day average of a series of numbers.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>headache_df <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"headache-variables.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>headache_df <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">date</th>
+<th style="text-align: left;">headache</th>
+<th style="text-align: left;">icecream</th>
+<th style="text-align: right;">z</th>
+<th style="text-align: right;">wine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2022-06-03</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">5.837438</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-06-04</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">6.717312</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-06-05</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">6.299961</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-06-06</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">7.481802</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-06-07</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">7.825569</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-06-08</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">6.868574</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
 </div>
-</section>
-<section id="how-to-edit-this-book" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="how-to-edit-this-book"><span class="header-section-number">1.2</span> How to edit this book</h2>
-<p>This is book written in <strong>Markdown</strong>. You can use anything that Pandoc’s Markdown supports, e.g., a math equation <span class="math inline">\(a^2 + b^2 = c^2\)</span>.</p>
-<p>Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading <code>#</code>.</p>
-<p>To compile this example to PDF, you need XeLaTeX. We recommend TinyTeX (which includes XeLaTeX): <a href="https://yihui.org/tinytex/" class="uri">https://yihui.org/tinytex/</a>.</p>
+</div>
+<p><strong>Solution</strong> use the <code>rolling()</code> functions in package <code>zoo</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>headache_df <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sleep7A =</span> <span class="fu">rollapply</span>(z,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                               <span class="dv">7</span>, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                               <span class="cf">function</span>(x) {x <span class="ot">=</span> <span class="fu">mean</span>(x,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                               <span class="at">align =</span> <span class="st">'right'</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                               <span class="at">fill =</span> <span class="cn">NA</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>() <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">date</th>
+<th style="text-align: left;">headache</th>
+<th style="text-align: left;">icecream</th>
+<th style="text-align: right;">z</th>
+<th style="text-align: right;">wine</th>
+<th style="text-align: right;">sleep7A</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2022-09-03</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">8.137541</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.030931</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-09-04</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">7.739740</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.218503</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-09-05</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">8.383652</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.451673</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-09-06</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">7.722597</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.672176</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2022-09-07</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">6.220916</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.479385</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2022-09-08</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: right;">7.119099</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">7.395440</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -376,10 +499,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./02-literature.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">The Principles of Personal Science</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04-application.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Applications</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
