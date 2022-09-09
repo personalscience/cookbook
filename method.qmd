@@ -10,10 +10,12 @@ Self-collected data is almost always best represented by a table of the variable
 
 It’s important to get in the habit of this row/column approach to data collection because, as you’ll see, all of our tools assume that data will come in a dataframe format. 
 
-
-
-```{r child="Excel - ttest.md"}
+```{r}
+#| child="Excelttest.qmd"
+ 
 ```
+
+<!-- {{< include Excelttest.qmd >}} -->
 
 
 ## Rolling average

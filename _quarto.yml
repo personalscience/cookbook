@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: _book
+  output-dir: docs
 
 book:
   title: "Personal Science Cookbook"
@@ -11,7 +11,7 @@ book:
     - index.qmd
     - intro.qmd
     - 02-literature.qmd
-    - 03-method.qmd
+    - method.qmd
     - 04-application.qmd
     - 05-summary.qmd
     - 06-references.qmd
@@ -27,4 +27,8 @@ format:
     css: style.css
   pdf:
     documentclass: scrreprt
+  epub:
+    css: middleman.css
 
+
+editor: visual
