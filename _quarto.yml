@@ -7,12 +7,17 @@ book:
   author: "Friends of Personal Science"
   subtitle: "Practical techniques to apply scientific principles to your own life."
   date: "9/9/2022"
+  downloads: [epub, pdf, docx]
   chapters:
     - index.qmd
-    - intro.qmd
-    - 02-literature.qmd
-    - method.qmd
-    - 04-application.qmd
+    - part: "General Overview"
+      chapters:
+        - intro.qmd
+        - 02-literature.qmd
+    - part: "Techniques"
+      chapters:
+        - method.qmd
+        - 04-application.qmd
     - 05-summary.qmd
     - 06-references.qmd
 

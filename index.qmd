@@ -1,7 +1,9 @@
 
-# Prerequisites
+# Getting Started
 
-## Assumptions
+This book is intended to offer practical, step-by-step instructions to solve common problems when doing data analysis for Personal Science. 
+
+## Prerequisites
 
 We'll assume some basic tools.
 
@@ -9,6 +11,10 @@ We'll assume some basic tools.
 -   The programming language R and the associated development environment RStudio
 
 A good introduction to R is [Hands On Programming with R](https://rstudio-education.github.io/hopr/)
+
+### R Packages
+
+Nearly all of the examples in this book will use the following packages, each of which is probably already familiar if you've done some basic R programming already.
 
 ```{r message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -18,13 +24,8 @@ library(kableExtra)
 
 ```
 
-## How to edit this book
+In addition, specific solutions may require other packages that will be identified in the instructions.
 
-This is book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
-
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
-
-To compile this example to PDF, you need XeLaTeX. We recommend TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
