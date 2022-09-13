@@ -6,7 +6,7 @@ book:
   title: "Personal Science Cookbook"
   author: "Friends of Personal Science"
   subtitle: "Practical techniques to apply scientific principles to your own life."
-  date: "9/9/2022"
+  date: last-modified
   downloads: [epub, pdf, docx]
   chapters:
     - index.qmd
@@ -16,6 +16,7 @@ book:
         - 02-literature.qmd
     - part: "Techniques"
       chapters:
+        - get-started.qmd
         - method.qmd
         - 04-application.qmd
     - 05-summary.qmd

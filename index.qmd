@@ -1,5 +1,5 @@
 
-# Getting Started
+
 
 This book is intended to offer practical, step-by-step instructions to solve common problems when doing data analysis for Personal Science. 
 
