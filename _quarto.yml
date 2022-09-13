@@ -20,10 +20,14 @@ book:
         - method.qmd
         - 04-application.qmd
     - 05-summary.qmd
+    - Excelttest.qmd
     - 06-references.qmd
 
 bibliography:
   - book.bib
+
+extract-media: "assets/images"
+license: "MIT"
 
 
 format:

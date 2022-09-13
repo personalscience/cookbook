@@ -67,6 +67,8 @@ But how do you know you're not just guessing? What *looks* like a pattern might 
 
 ## T-Testing
 
+Hint: an Excel version of this exercise is in @sec-excel-ttest .
+
 The simplest test is called a "T Test". This is a formula that can compare two equal-sized lists of numbers and return the probability that any differences between the two are the result of chance.
 
 What are the chances that the number of headaches per week is related to the amount of ice cream I eat per week?

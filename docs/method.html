@@ -237,7 +237,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="./Excelttest.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Appendix: Excel Examples</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">References</span></a>
   </div>
 </li>
     </ul>
@@ -250,8 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#what-is-a-dataframe" id="toc-what-is-a-dataframe" class="nav-link active" data-scroll-target="#what-is-a-dataframe"><span class="toc-section-number">5.1</span>  What is a dataframe?</a></li>
-  <li><a href="#is-it-chance-t-test" id="toc-is-it-chance-t-test" class="nav-link" data-scroll-target="#is-it-chance-t-test"><span class="toc-section-number">5.2</span>  Is it chance? T-Test</a></li>
-  <li><a href="#rolling-average" id="toc-rolling-average" class="nav-link" data-scroll-target="#rolling-average"><span class="toc-section-number">5.3</span>  Rolling average</a></li>
+  <li><a href="#rolling-average" id="toc-rolling-average" class="nav-link" data-scroll-target="#rolling-average"><span class="toc-section-number">5.2</span>  Rolling average</a></li>
   </ul>
 </nav>
     </div>
@@ -283,27 +287,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>It’s important to get in the habit of this row/column approach to data collection because, as you’ll see, all of our tools assume that data will come in a dataframe format.</p>
 </section>
-<section id="is-it-chance-t-test" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="is-it-chance-t-test"><span class="header-section-number">5.2</span> Is it chance? T-Test</h2>
-<p><strong>Problem</strong></p>
-<p>You tried an intervention and want to see if it worked. How likely is it that the results were chance?</p>
-<p><strong>Solution</strong></p>
-<p>One of the simplest tests is a “T-Test”, sometimes called a “Student T Test”.</p>
-<p>Statisticians use the concept of <em>P Value</em> to discuss the how often a result might appear to be significant even when it’s not. While this crude measure doesn’t describe all the ways something might happen due to chance, generally the lower the P Value, the better. Professional scientists, especially those who understand statistics, will get touchy if you claim a result based purely on P Values, but for Personal Science purposes, it’s a good start. There is no “correct” cutoff value that can determine the likelihood that something is due to chance alone, but traditionally people assume that anything under 0.05 deserves a closer look.</p>
-<p>Here’s an example for how to do this in Excel.</p>
-<p>Suppose you’d like to know if taking a melotonin supplement will help you sleep longer. You’ve measured your daily sleep, taking the supplements on some days (the “intervention”) and not on others (“control”).</p>
-<p>A simple spreadsheet might look like this:</p>
-<p><img src="image-20200828173214548.png" class="img-fluid"></p>
-<p>Track your sleep under two columns: one for nights when you took the supplement, and the other for nights you didn’t.</p>
-<p>The built-in Excel statistical function <code>T.TEST</code> will calculate the P-Value when you give it two ranges, the “intervention” (nights we took melotonin) and the “control” (nights without).</p>
-<p>See the screenshot for the exact formula in this case:</p>
-<p><code>=T.TEST(array1,array2,tails,type)</code></p>
-<p>Enter a <code>1</code> for <code>tails</code> (because we’re only interested in one measurement, sleep) and a <code>2</code> for type (because in this case our samples are not of the same length).</p>
-<p>The P Value in this example, <code>0.24</code>, is above <code>0.05</code> and therefore we will assume that any difference in sleep between the nights is due to pure chance.</p>
-<!-- {{< include Excelttest.qmd >}} -->
-</section>
-<section id="rolling-average" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="rolling-average"><span class="header-section-number">5.3</span> Rolling average</h2>
+<section id="rolling-average" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="rolling-average"><span class="header-section-number">5.2</span> Rolling average</h2>
 <p><strong>Problem</strong> You want to take the rolling 7-day average of a series of numbers.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
