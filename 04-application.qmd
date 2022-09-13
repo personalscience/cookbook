@@ -19,8 +19,6 @@ x <- readr::read_csv("./headache-variables.csv", show_col_types = FALSE)
 
 ```
 
-
-
 With my 14 weeks of data, we can do a few basic calculations:
 
 How frequent are my headaches? Simply total the number of headaches and divide by number of days:
@@ -35,7 +33,7 @@ sum(x$headache) / length(x$headache)
 
 ## Hypothesis
 
-With the data collected and in a nice dataframe format, we can start to ask what might be driving the headaches. One of the first suspected culprits might be something that I eat. 
+With the data collected and in a nice dataframe format, we can start to ask what might be driving the headaches. One of the first suspected culprits might be something that I eat.
 
 Based on the data collected so far, can I make any guesses about what might be driving my headaches?
 
