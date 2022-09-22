@@ -33,13 +33,13 @@ license: "MIT"
 
 format:
   html:
-    theme: cosmo
+    theme: litera
     toc: true
-    css: style.css
+    css: css/normalize.css
   pdf:
     documentclass: scrreprt
   epub:
-    css: middleman.css
+    css: css/normalize.css
 
 
 editor: visual

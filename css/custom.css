@@ -1,0 +1,33 @@
+.hljs {
+  padding: 1em;
+}
+
+
+
+body {
+  font: 400 16px/1.5 Palatino, Times Roman, serif;
+  color: #111;
+  background-color: #fcfbf5;
+  
+}
+
+blockquote {
+  color: DarkSlateGray;
+}
+
+figure {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+figure img {
+  border: none;
+  margin: 0 auto;
+}
+
+figcaption {
+  font-size: 0.8em;
+  font-style: italic;
+  margin: 0 0 .8em;
+}

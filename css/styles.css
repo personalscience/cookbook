@@ -1,0 +1,83 @@
+/* css styles */
+
+body {
+    font: 400 16px/1.5 Palatino, Times Roman, serif;
+    color: #111;
+    background-color: #fcfbf5;
+    
+  }
+  
+  blockquote {
+    color: DarkSlateGray;
+  }
+  
+  figure {
+    display: block;
+    text-align: center;
+    margin: 1em 0;
+  }
+  
+  figure img {
+    border: none;
+    margin: 0 auto;
+  }
+  
+  figcaption {
+    font-size: 0.8em;
+    font-style: italic;
+    margin: 0 0 .8em;
+  }
+
+
+h1 {
+    font-family: Sans-Serif;
+    font-size: 2.3em;
+    font-weight: 700;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #396a5b;
+  }
+  h2::before {
+    content: " ";
+    display: inline-block;
+    width: .7em;
+    height: 0.8em;
+    padding: 0;
+    margin: 0 8px 0 0;
+    background: var(--primary-headings-color);
+    border-radius: 0.9em 2.9em 1.1em 3em;
+  }
+  h2 {
+    padding: 0;
+    margin: var(--primary-headings-margin);
+    color: var(--primary-headings-color);
+    font-family: Sans-Serif;
+    font-size: 1.8em;
+    font-weight: var(--headings-font-weight);
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #949494;
+  }
+  
+  h3 {
+    padding: 0;
+    /* margin: var(--primary-headings-margin); */
+    color: var(--primary-headings-color);
+    font-size: 1.5em;
+    font-family: Sans-Serif;
+    font-weight: var(--headings-font-weight);
+  
+  }
+  
+  h4,
+  h5,
+  h6 {
+    padding: 0;
+    margin: var(--primary-headings-margin);
+    color: var(--primary-headings-color);
+    font-size: 1.2em;
+    font-weight: var(--headings-font-weight);
+  
+  }
+  
+  
