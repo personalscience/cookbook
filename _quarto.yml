@@ -19,6 +19,7 @@ book:
         - get-started.qmd
         - method.qmd
         - 04-application.qmd
+        - playN-of-1.qmd
     - 05-summary.qmd
     - Excelttest.qmd
     - 06-references.qmd

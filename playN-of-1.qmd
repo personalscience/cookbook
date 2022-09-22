@@ -1,0 +1,60 @@
+---
+title: "Averages vs n-of-1"
+format: html
+editor: visual
+---
+
+## Averages vs N-of-1
+
+Consider the following case:
+
+1000 people took Vitamin D for 6 months. We measured their Vitamin D levels before and after, and sure enough: the average levels \*after\* are higher than \*before\*.
+
+More specifically, let's say the average at the beginning of the study is 30 mg/nL (widely considered the absolute )
+
+```{r setup}
+#| echo: false
+#| warning: false
+library(tidyverse)
+set.seed(1234)
+N <- 1000
+MEAN_VITAMIN_D <- 30
+
+
+```
+
+```{r}
+#| fig-cap: "Red line indicates the average slope of the points"
+study <- tibble(subject=1:N,
+                vitamind=rnorm(n=N,
+                               mean=MEAN_VITAMIN_D,
+                               sd=MEAN_VITAMIN_D
+                )
+                ) %>% 
+  transmute(subject, vitamind=if_else(vitamind<0, 0,vitamind))
+
+study_plot <- study %>% ggplot(aes(x=subject,y=vitamind)) + 
+  geom_point() +
+  geom_smooth(method= lm, formula= y ~ x, color="red") + 
+  labs(x="Subject", y = "Vitamin D (ng/mL)", title = "Vitamin D levels in all subjects")
+
+study_plot
+```
+
+Note that, although the *average* level is about 30 mg/mL, there are numerous subjects whose levels are considerable above and below that.
+
+```{r}
+#| fig-cap: Shaded area represents points more than a standard deviation outlier.
+
+maxd <- max(study$vitamind)
+study_plot + 
+  geom_rect(xmin=0,ymin=0,xmax=N, ymax=MEAN_VITAMIN_D - sd(1:MEAN_VITAMIN_D),
+            fill = "lightblue",
+            alpha = 0.007) +
+    geom_rect(xmin=0,ymin=MEAN_VITAMIN_D + sd(1:MEAN_VITAMIN_D),xmax=N, ymax=maxd,
+            fill = "lightblue",
+            alpha = 0.007) 
+  
+
+
+```
