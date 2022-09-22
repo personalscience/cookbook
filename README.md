@@ -12,8 +12,28 @@ https://personalscience.github.io/cookbook/
 
 This book uses the open source publishing system [Quarto](https://quarto.org/).
 
-See [.\\\_quarto.yml](.\_quarto.yml]) for parameters
+See [.\\\_quarto.yml](._quarto.yml%5D) for parameters
 
-Final output is generated in `/docs`. Any changes to that directory will automatically generate a new build and deployment. (See this repo's [settings/pages](./settings/pages)).
+If you have a local repo, create a new `html` version using the Quarto command line:
+
+```sh
+quarto render
+```
+
+Final output is generated in `/docs`. 
+
 
 Images and other assets are kept in `/assets`
+
+
+## Github Pages
+
+The published version at https://personalscience.github.io/cookbook/ is generated automatically. (See this repo's [settings/pages](./settings/pages)).
+
+From the command line I type
+```
+quarto publish gh-pages
+```
+
+and it builds and deploys everything automatically.
+
