@@ -8,7 +8,7 @@ editor: visual
 
 Consider the following case:
 
-1000 people took Vitamin D for 6 months. We measured their Vitamin D levels before and after, and sure enough: the average levels \*after\* are higher than \*before\*.
+1000 people took Vitamin D for 6 months. We measured their Vitamin D levels before and after, and sure enough: the average levels *after* are higher than *before*.
 
 More specifically, let's say the average at the beginning of the study is 30 mg/nL (widely considered the absolute )
 
@@ -41,7 +41,7 @@ study_plot <- study %>% ggplot(aes(x=subject,y=vitamind)) +
 study_plot
 ```
 
-Note that, although the *average* level is about 30 mg/mL, there are numerous subjects whose levels are considerable above and below that.
+Note that, although the *average* level is about 30 mg/mL, there are many subjects whose levels are considerable above and below that.
 
 ```{r}
 #| fig-cap: Shaded area represents points more than a standard deviation outlier.
@@ -58,3 +58,15 @@ study_plot +
 
 
 ```
+
+Another way to represent the study is with a boxplot variation called a *violin plot*.
+
+```{r}
+#| fig-cap: "The width of this plot shows the proportion of subjects at particular Vitamin D levels. (The horizontal lines indicate the different quartiles of the data)"
+
+study %>% ggplot() + 
+  geom_violin(aes(x=subject,y=vitamind),
+              draw_quantiles = c(0.25, 0.5, 0.75)) + 
+  labs(x="", y = "Vitamin D (ng/mL)", title = "Vitamin D levels in all subjects")
+```
+

@@ -12,7 +12,7 @@ https://personalscience.github.io/cookbook/
 
 This book uses the open source publishing system [Quarto](https://quarto.org/).
 
-See [.\\\_quarto.yml](._quarto.yml%5D) for parameters
+See [.\\\_quarto.yml](./blob/master/_quarto.yml) for parameters
 
 If you have a local repo, create a new `html` version using the Quarto command line:
 
