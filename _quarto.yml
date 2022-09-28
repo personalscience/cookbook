@@ -2,11 +2,16 @@ project:
   type: book
   output-dir: docs
 
+execute:
+  cache: true
+  freeze: auto
+
 book:
   title: "Personal Science Cookbook"
   author: "Friends of Personal Science"
   subtitle: "Practical techniques to apply scientific principles to your own life."
   date: last-modified
+  cover-image: assets/coverCookbook-quarto.jpg
   downloads: [epub, pdf, docx]
   chapters:
     - index.qmd
@@ -35,11 +40,15 @@ format:
   html:
     theme: litera
     toc: true
-    css: css/normalize.css
+    css: css/theme.css
+    df-print: paged
+    cover-image: assets/coverCookbook-quarto.jpg
   pdf:
     documentclass: scrreprt
+    title: Personal Science Cookbook
+    include-before-body: assets/coverpage.txt
   epub:
-    css: css/normalize.css
+    css: css/theme.css
 
 
 editor: visual

@@ -4,52 +4,45 @@ Personal Science is about empowering normal people to use the tools of science t
 
 When the first microchips enabled desktop computers in the 1970s, people were unsure what to call them.
 
-The word “mini-computer” was already taken, referring to a generation of computers that didn’t require entire rooms, so the techie engineers who confronted these new machines called them “microcomputers”, a moniker that lives on in the name for one of the first software companies of that generation, Microsoft.
+The word "mini-computer" was already taken, referring to a generation of computers that didn't require entire rooms, so the techie engineers who confronted these new machines called them "microcomputers", a moniker that lives on in the name for one of the first software companies of that generation, Microsoft.
 
-Some people called them “hobby computers”, because that seemed to be all they were good for. The most influential early gathering of people using them was called the “Homebrew Computer Club”. The term “desktop” was gaining traction, and inspired later generations that called them “laptops”, but then the most traditional of all computer companies introduced its first “IBM PC”, and suddenly the industry had a new term.
+Some people called them "hobby computers", because that seemed to be all they were good for. The most influential early gathering of people using them was called the "Homebrew Computer Club". The term "desktop" was gaining traction, and inspired later generations that called them "laptops", but then the most traditional of all computer companies introduced its first "IBM PC", and suddenly the industry had a new term.
 
-It was a “personal computer” because, for the first time, it was cheap enough and easy enough for a single individual to use it by him (or her) self. In contrast to all previous generations of computing, everything about the device was intended to be used by a single individual. Even if the computer was shared, only one person would use it at a time, and all design decisions reflected that: a single keyboard, monitor, one power switch. You didn’t need a team of people to set up and care for the device — it was out-of-the-box something that a single person could set up and use.
+It was a "personal computer" because, for the first time, it was cheap enough and easy enough for a single individual to use it by him (or her) self. In contrast to all previous generations of computing, everything about the device was intended to be used by a single individual. Even if the computer was shared, only one person would use it at a time, and all design decisions reflected that: a single keyboard, monitor, one power switch. You didn't need a team of people to set up and care for the device --- it was out-of-the-box something that a single person could set up and use.
 
-It’s easy to forget how transformative this was at the time. Computers until then were very expensive — many times more than the cost of a car or even a house. You had to be a large organization — a university, a business — to afford one, and even if somebody magically just gave one to you, you’d need a special place to keep it, with highly-trained technicians just to keep it running, and of course even more well-trained engineers and scientists to get it to do anything useful.
+It's easy to forget how transformative this was at the time. Computers until then were very expensive --- many times more than the cost of a car or even a house. You had to be a large organization --- a university, a business --- to afford one, and even if somebody magically just gave one to you, you'd need a special place to keep it, with highly-trained technicians just to keep it running, and of course even more well-trained engineers and scientists to get it to do anything useful.
 
-* * *
+------------------------------------------------------------------------
 
-A similar situation exists today in science. New discoveries are made in large institutions, by teams of high-trained people with access to large, expensive equipment. The discoveries are discussed and shared by specialists who are followed by a cadre of specialized interpreters — journalists, educators, clinicians —  who decipher the new scientific results into lay language and ultimately into face-to-face interaction with the public. Committees meet to discuss takeaways from the expensive and time-consuming research, reaching conclusions that are considered generally acceptable enough to result in new actionable treatments and suggestions for “normal people”.
+A similar situation exists today in science. New discoveries are made in large institutions, by teams of high-trained people with access to large, expensive equipment. The discoveries are discussed and shared by specialists who are followed by a cadre of specialized interpreters --- journalists, educators, clinicians ---  who decipher the new scientific results into lay language and ultimately into face-to-face interaction with the public. Committees meet to discuss takeaways from the expensive and time-consuming research, reaching conclusions that are considered generally acceptable enough to result in new actionable treatments and suggestions for "normal people".
 
 This gap between the specialists and the general public, like the gap between mainframe computers and PCs, is eroding thanks to technology.
 
-Actually that’s not quite true: the *potential* gap between specialists and the general public is eroding. But reality is still different. It’s as if PCs had been invented but no software.
+Actually that's not quite true: the *potential* gap between specialists and the general public is eroding. But reality is still different. It's as if PCs had been invented but no software.
 
 The personal computer revolution was about more than simply cheaper devices. The hardware became useful after it spawned an entire industry of dedicated software makers,  educational experts, consultants and systems integrators,
 
 Professional science
 
-We all think science is great…
+We all think science is great...
 
-but what do people mean when they say “science”?
-1. Wonder  (photos of stars, micrographs, etc.)
-2. Technology (photos of roman arch, integrated circuit, moon landing)
-3. A way of thinking (photos of “amateur" scientists)
+but what do people mean when they say "science"? 1. Wonder  (photos of stars, micrographs, etc.) 2. Technology (photos of roman arch, integrated circuit, moon landing) 3. A way of thinking (photos of "amateur" scientists)
 
-It’s tempting to assume that the scientific way of thinking is obvious, and maybe even obviously the only way to think rigorously but that’s not really true.
+It's tempting to assume that the scientific way of thinking is obvious, and maybe even obviously the only way to think rigorously but that's not really true.
 
-Alternatives to the scientific way of thinking:
-recipes
+Alternatives to the scientific way of thinking: recipes
 
-My definition of science: a predisposition to the assumption that you’re wrong, a nasty mischievous inclination to disbelieve things you can’t prove.
+My definition of science: a predisposition to the assumption that you're wrong, a nasty mischievous inclination to disbelieve things you can't prove.
 
-A core scientific skill is *curiosity*.  Always ask “what if…”  thinking in hypotheticals
+A core scientific skill is *curiosity*.  Always ask "what if..."  thinking in hypotheticals
 
-Religion seems like a classic example of unscientific thinking, but even that I’ll challenge. What if you’re wrong?  Is there a way to experiment, test it?
+Religion seems like a classic example of unscientific thinking, but even that I'll challenge. What if you're wrong?  Is there a way to experiment, test it?
 
 Science is:
 
-- Curiosity
-- Skepticism : an unending belief that you are wrong
-    - Low interest in credentials … just because you are “certified” doesn’t mean you know any more than I do.
-- Bias toward experiments
+-   Curiosity
+-   Skepticism : an unending belief that you are wrong
+    -   Low interest in credentials ... just because you are "certified" doesn't mean you know any more than I do.
+-   Bias toward experiments
 
 See @roberts_self-experimentation_2004 for examples.
-
-
-

@@ -7,6 +7,7 @@ _book/
 *.Rproj
 docs/
 assets/images/
+_freeze/
 
 
 
