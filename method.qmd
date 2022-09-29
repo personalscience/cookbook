@@ -1,19 +1,25 @@
 # Methods
 
+Before we discuss techniques for how to analyze your data, let's cover a few basic methods that will be useful for all of the example solutions in this book.
 
 ## What is a dataframe?
 
-Self-collected data is almost always best represented by a table of the variables you want to study and the values that you collected for each of those variables. The most common type of table is a spreadsheet, a specific form of which  in Personal Science we refer to as a data table or a _data frame_. Abbreviated “dataframe” or often just “df”, it’s a table of values and variables that always has the same form:
+Self-collected data is almost always best represented by a table of the variables you want to study and the values that you collected for each of those variables. The most common type of table is a spreadsheet, which in Personal Science we refer to as a data table or a *data frame*. Abbreviated "dataframe" or often just "df", it's a table of values and variables that always has the same form:
 
-* columns are variables: the parameters you want to study
-* rows are observations: each incident of data you collected.
+-   columns are variables: the parameters you want to study
+-   rows are observations: each incident of data you collected.
 
-It’s important to get in the habit of this row/column approach to data collection because, as you’ll see, all of our tools assume that data will come in a dataframe format. 
+It's important to get in the habit of this row/column approach to data collection because, as you'll see, all of our tools assume that data will come in a data frame format.
 
-## Rolling average
+### How do I read a dataframe?
 
-**Problem** You want to take the rolling 7-day average of a series of numbers.
+Although you are probably used to handling data frames in a spreadsheet program like Excel, in this cookbook we'll need to start by reading the data into R. 
 
+**Solution**
+
+Use the Tidyverse `readr` package.  Read a CSV-formatted file with the `read_csv` function. Other Tidyverse let you read many other types of data, including Microsoft Excel (XLSX) files with the function `readxl::read_excel()`.
+
+Regardless of where you get the data, you'll want to read it into a dataframe. In this case, we'll save the CSV contents into the dataframe variable `headache_df`.
 
 ```{r readHeadache, message = FALSE}
 library(tidyverse)
@@ -21,6 +27,15 @@ headache_df <- readr::read_csv("headache-variables.csv")
 headache_df %>% head() %>% knitr::kable()
 
 ```
+
+Here we peeked at the first 6 lines using the function `head()` and then sent it to the `knitr::kable()` function to be printed in this nice format. 
+
+## Rolling average
+
+A long series of daily numbers becomes unwieldy after a while, so we'd like to summarize them somehow, perhaps as groups of weeks or months.
+
+**Problem** You want to take the rolling 7-day average of a series of numbers.
+
 
 **Solution** use the `rolling()` functions in package `zoo`:
 
@@ -35,5 +50,27 @@ headache_df %>%
                                fill = NA)) %>% 
   tail() %>% knitr::kable()
 
+```
+
+Using the Tidyverse `mutate()` function, we created a new variable `sleep7A` to hold the 7-day rolling average for our sleep (`Z`) variable.
+
+**Problem** How do we skip the days in between and summarize just the averages by week?
+
+**Solution** Use `summarize()`.
+
+The Tidyverse function `lubridate::week()` returns the number of complete seven day periods that have occurred between the date and January 1st, plus one.
+
+```{r}
+
+headache_weeks <- headache_df %>%
+  mutate(week = lubridate::week(date)) %>%
+  group_by(week) %>%
+  summarize(week_ave = mean(z))
+
+headache_weeks
+
+headache_weeks %>% ggplot(aes(x=week, y = week_ave)) +
+  geom_line() +
+  labs(title = "Weekly Average for Z", y = "Hours (Weekly Ave)")
 ```
 

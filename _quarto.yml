@@ -18,7 +18,7 @@ book:
     - part: "General Overview"
       chapters:
         - intro.qmd
-        - 02-literature.qmd
+        - personal_science.qmd
     - part: "Techniques"
       chapters:
         - get-started.qmd

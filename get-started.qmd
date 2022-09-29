@@ -1,9 +1,6 @@
-
-
 ## Getting Started {#sec-get-started}
 
-All of our examples will be based on a common data set.
-
+All of our examples will be based on a common data set. We'll begin by creating it and explaining how it works.
 
 Let's say you are suffering from unexplained headaches that appear somewhat randomly. You suspect they may be associated with something you eat, but you're not sure, so you've been tracking 14 weeks (98 days) worth of your own data in a spreadsheet that looks like this:
 
@@ -66,6 +63,3 @@ write_csv(x,"headache-variables.csv")
 -   `icecream`: did I eat ice cream that day?
 -   `wine`: Number of glasses of wine I drank.
 -   `z`: Number of hours I slept that day.
-
-
-
