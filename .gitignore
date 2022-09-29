@@ -9,6 +9,9 @@ docs/
 assets/images/
 _freeze/
 
+.DS_Store
+
+
 
 
 /.quarto/
