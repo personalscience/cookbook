@@ -42,6 +42,7 @@ license: "MIT"
 format:
   html:
     theme: litera
+    code-fold: true
     toc: true
     css: css/theme.css
     df-print: paged

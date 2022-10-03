@@ -3,7 +3,7 @@
 
 This book is intended to offer practical, step-by-step instructions to solve common problems when doing data analysis for Personal Science. 
 
-## Prerequisites
+# Prerequisites
 
 We'll assume some basic tools.
 
@@ -12,7 +12,7 @@ We'll assume some basic tools.
 
 A good introduction to R is [Hands On Programming with R](https://rstudio-education.github.io/hopr/)
 
-### R Packages
+## R Packages
 
 Nearly all of the examples in this book will use the following packages, each of which is probably already familiar if you've done some basic R programming already.
 
