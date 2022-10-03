@@ -10,7 +10,7 @@ Consider the following case:
 
 1000 people took Vitamin D for 6 months. We measured their Vitamin D levels before and after, and sure enough: the average levels *after* are higher than *before*.
 
-More specifically, let's say the average at the beginning of the study is 30 mg/nL (widely considered the absolute )
+More specifically, let's say the average at the beginning of the study is 30 mg/nL, widely considered the absolute minimum for a healthy person.
 
 ```{r setup}
 #| echo: false
@@ -70,3 +70,10 @@ study %>% ggplot() +
   labs(x="", y = "Vitamin D (ng/mL)", title = "Vitamin D levels in all subjects")
 ```
 
+To make this more fun, let's assume we have additional information about the subjects in our trial.
+
+```{r}
+study <- cbind(study,
+ nationality = replicate(N, sample(c("USA","Japan","Europe"),size=1)),
+ weight = rnorm(n=N, mean = 120, sd = 50))
+```

@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: docs
+  preview: 
+      port: 4500
 
 execute:
   cache: true
@@ -24,6 +26,7 @@ book:
         - get-started.qmd
         - method.qmd
         - 04-application.qmd
+        - microbiome.qmd
         - playN-of-1.qmd
     - 05-summary.qmd
     - Excelttest.qmd

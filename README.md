@@ -37,3 +37,7 @@ quarto publish gh-pages
 
 and it builds and deploys everything automatically.
 
+***
+
+## This Repo
+I edit this document in VS Code.

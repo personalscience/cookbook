@@ -1,6 +1,5 @@
 # Applications
 
-Some *significant* applications are demonstrated in this chapter.
 
 Load the data we created in our @sec-get-started example.
 
@@ -108,4 +107,6 @@ x_week %>% pivot_longer(names_to = "activity",
 
 ```
 
-## Example two
+
+
+
