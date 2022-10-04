@@ -4,14 +4,7 @@
     "href": "index.html",
     "title": "Personal Science Cookbook",
     "section": "",
-    "text": "This book is intended to offer practical, step-by-step instructions to solve common problems when doing data analysis for Personal Science."
-  },
-  {
-    "objectID": "index.html#r-packages",
-    "href": "index.html#r-packages",
-    "title": "Personal Science Cookbook",
-    "section": "1.1 R Packages",
-    "text": "1.1 R Packages\nNearly all of the examples in this book will use the following packages, each of which is probably already familiar if you’ve done some basic R programming already.\n\n\nCode\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(kableExtra)\n\n\nIn addition, specific solutions may require other packages that will be identified in the instructions."
+    "text": "This book is intended to offer practical, step-by-step instructions to solve common problems when doing data analysis for Personal Science.\n\n1 Prerequisites\nWe’ll assume some basic tools.\n\nA spreadsheet like Microsoft Excel\nThe programming language R and the associated development environment RStudio\n\nA good introduction to R is Hands On Programming with R"
   },
   {
     "objectID": "intro.html",
@@ -56,29 +49,29 @@
     "text": "5.2 Rolling average\nA long series of daily numbers becomes unwieldy after a while, so we’d like to summarize them somehow, perhaps as groups of weeks or months.\nProblem You want to take the rolling 7-day average of a series of numbers.\nSolution use the rolling() functions in package zoo:\n\n\nCode\nlibrary(zoo)\n\nheadache_df %>% \n    mutate(sleep7A = rollapply(z,\n                               7, \n                               function(x) {x = mean(x,na.rm = TRUE)},\n                               align = 'right',\n                               fill = NA)) %>% \n  tail() %>% knitr::kable()\n\n\n\n\n\ndate\nheadache\nicecream\nz\nwine\nsleep7A\n\n\n\n\n2022-09-22\nFALSE\nFALSE\n8.120216\n0\n6.899738\n\n\n2022-09-23\nFALSE\nFALSE\n5.668099\n0\n6.738935\n\n\n2022-09-24\nFALSE\nFALSE\n8.093531\n0\n7.094138\n\n\n2022-09-25\nTRUE\nFALSE\n7.679254\n0\n7.308210\n\n\n2022-09-26\nFALSE\nFALSE\n7.346326\n0\n7.283955\n\n\n2022-09-27\nFALSE\nFALSE\n6.019567\n2\n7.321820\n\n\n\n\n\nUsing the Tidyverse mutate() function, we created a new variable sleep7A to hold the 7-day rolling average for our sleep (Z) variable.\nProblem How do we skip the days in between and summarize just the averages by week?\nSolution Use summarize().\nThe Tidyverse function lubridate::week() returns the number of complete seven day periods that have occurred between the date and January 1st, plus one.\n\n\nCode\nheadache_weeks <- headache_df %>%\n  mutate(week = lubridate::week(date)) %>%\n  group_by(week) %>%\n  summarize(week_ave = mean(z))\n\nheadache_weeks\n\n\n\n\n  \n\n\n\nCode\nheadache_weeks %>% ggplot(aes(x=week, y = week_ave)) +\n  geom_line() +\n  labs(title = \"Weekly Average for Z\", y = \"Hours (Weekly Ave)\")"
   },
   {
-    "objectID": "04-application.html",
-    "href": "04-application.html",
+    "objectID": "applications.html",
+    "href": "applications.html",
     "title": "6  Applications",
     "section": "",
     "text": "Load the data we created in our Chapter 4 example.\nWith my 14 weeks of data, we can do a few basic calculations:\nHow frequent are my headaches? Simply total the number of headaches and divide by number of days:"
   },
   {
-    "objectID": "04-application.html#hypothesis",
-    "href": "04-application.html#hypothesis",
+    "objectID": "applications.html#hypothesis",
+    "href": "applications.html#hypothesis",
     "title": "6  Applications",
     "section": "6.1 Hypothesis",
     "text": "6.1 Hypothesis\nWith the data collected and in a nice dataframe format, we can start to ask what might be driving the headaches. One of the first suspected culprits might be something that I eat.\nBased on the data collected so far, can I make any guesses about what might be driving my headaches?\nThe most obvious place to check is whether I see any patterns on the days when I have headaches. Let’s filter for headache days only:\n\n\nCode\nx %>% filter(headache)  %>% kableExtra::kable() %>% \n  kableExtra::kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\"))\n\n\n\n\n \n  \n    date \n    headache \n    icecream \n    z \n    wine \n  \n \n\n  \n    2022-07-03 \n    TRUE \n    TRUE \n    8.478644 \n    0 \n  \n  \n    2022-07-18 \n    TRUE \n    FALSE \n    6.880779 \n    0 \n  \n  \n    2022-07-25 \n    TRUE \n    FALSE \n    6.909671 \n    0 \n  \n  \n    2022-08-12 \n    TRUE \n    FALSE \n    7.278277 \n    0 \n  \n  \n    2022-08-20 \n    TRUE \n    FALSE \n    7.797994 \n    0 \n  \n  \n    2022-09-05 \n    TRUE \n    TRUE \n    8.385846 \n    0 \n  \n  \n    2022-09-08 \n    TRUE \n    FALSE \n    5.849701 \n    0 \n  \n  \n    2022-09-25 \n    TRUE \n    FALSE \n    7.679254 \n    0 \n  \n\n\n\n\n\nBut maybe the headache takes a day or two to kick in. We can divide the data by week and see if we can spot any patterns in headache frequency:\n\n\nCode\nx %>% group_by(week = ntile(date,7)) %>% \n  summarise(headaches = sum(headache),\n            alcohol = sum(wine),\n            icecream = sum(icecream))  %>% kableExtra::kable() %>% \n  kableExtra::kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\"))\n\n\n\n\n \n  \n    week \n    headaches \n    alcohol \n    icecream \n  \n \n\n  \n    1 \n    1 \n    0 \n    4 \n  \n  \n    2 \n    1 \n    1 \n    0 \n  \n  \n    3 \n    1 \n    3 \n    0 \n  \n  \n    4 \n    1 \n    2 \n    1 \n  \n  \n    5 \n    1 \n    4 \n    1 \n  \n  \n    6 \n    2 \n    3 \n    3 \n  \n  \n    7 \n    1 \n    3 \n    0 \n  \n\n\n\n\n\nBuy simply eye-balling the data this way, you might see a pattern. For example, you might spot a week or two with an unusually large number of headaches and notice those weeks are accompanied by an unusually large consumption of some particular food.\nBut how do you know you’re not just guessing? What looks like a pattern might be a coincidence. To find out with more certainty, we will apply some statistics."
   },
   {
-    "objectID": "04-application.html#t-testing",
-    "href": "04-application.html#t-testing",
+    "objectID": "applications.html#t-testing",
+    "href": "applications.html#t-testing",
     "title": "6  Applications",
     "section": "6.2 T-Testing",
     "text": "6.2 T-Testing\nHint: an Excel version of this exercise is in Section 10.1 .\nThe simplest test is called a “T Test”. This is a formula that can compare two equal-sized lists of numbers and return the probability that any differences between the two are the result of chance.\nWhat are the chances that the number of headaches per week is related to the amount of ice cream I eat per week?\nIf there were a relationship between ice cream and headaches each week, I’d expect that over the weeks in this period, the total number of headaches and the total number of ice cream days should be roughly equal.\n\n\nCode\nx_week <- x %>% group_by(week = ntile(date,7)) %>% \n  summarise(headaches = sum(headache),\n            alcohol = sum(wine),\n            icecream = sum(icecream)) \nx_week %>% kableExtra::kable() %>%\n  kableExtra::kable_styling(bootstrap_options = c(\"striped\", \"hover\", \"condensed\")) \n\n\n\n\n \n  \n    week \n    headaches \n    alcohol \n    icecream \n  \n \n\n  \n    1 \n    1 \n    0 \n    4 \n  \n  \n    2 \n    1 \n    1 \n    0 \n  \n  \n    3 \n    1 \n    3 \n    0 \n  \n  \n    4 \n    1 \n    2 \n    1 \n  \n  \n    5 \n    1 \n    4 \n    1 \n  \n  \n    6 \n    2 \n    3 \n    3 \n  \n  \n    7 \n    1 \n    3 \n    0 \n  \n\n\n\n\n\nCode\nwith(x_week, t.test(headaches,icecream))[[\"p.value\"]]\n\n\n[1] 0.8254265\n\n\nBy convention, a p-value less than 0.05 (that is, less than 5\\%) is considered statistically significant. While this is not a hard and fast rule, it’s often a good place to start. A p-value greater than this is almost certainly due to chance."
   },
   {
-    "objectID": "04-application.html#data-visualization",
-    "href": "04-application.html#data-visualization",
+    "objectID": "applications.html#data-visualization",
+    "href": "applications.html#data-visualization",
     "title": "6  Applications",
     "section": "6.3 Data visualization",
     "text": "6.3 Data visualization\nThe first step in a more sophisticated analysis is to plot the data to see if we can spot any particular patterns.\n\n\nCode\nx_week %>% pivot_longer(names_to = \"activity\",\n                        values_to = \"amount\",\n                        cols = alcohol:icecream ) %>% \n  ggplot(aes(x=week,y=headaches)) +\n  geom_bar(aes(x=week,y=amount, fill = activity),\n           position = \"dodge\",\n           stat = \"identity\") +\n  geom_line(aes(x=week,y=headaches))"
@@ -119,8 +112,8 @@
     "text": "Consider the following case:\n1000 people took Vitamin D for 6 months. We measured their Vitamin D levels before and after, and sure enough: the average levels after are higher than before.\nMore specifically, let’s say the average at the beginning of the study is 30 mg/nL, widely considered the absolute minimum for a healthy person.\n\n\n\n\n\nCode\nstudy <- tibble(subject=1:N,\n                vitamind=rnorm(n=N,\n                               mean=MEAN_VITAMIN_D,\n                               sd=MEAN_VITAMIN_D\n                )\n                ) %>% \n  transmute(subject, vitamind=if_else(vitamind<0, 0,vitamind))\n\nstudy_plot <- study %>% ggplot(aes(x=subject,y=vitamind)) + \n  geom_point() +\n  geom_smooth(method= lm, formula= y ~ x, color=\"red\") + \n  labs(x=\"Subject\", y = \"Vitamin D (ng/mL)\", title = \"Vitamin D levels in all subjects\")\n\nstudy_plot\n\n\n\n\n\nRed line indicates the average slope of the points\n\n\n\n\nNote that, although the average level is about 30 mg/mL, there are many subjects whose levels are considerable above and below that.\n\n\nCode\nmaxd <- max(study$vitamind)\nstudy_plot + \n  geom_rect(xmin=0,ymin=0,xmax=N, ymax=MEAN_VITAMIN_D - sd(1:MEAN_VITAMIN_D),\n            fill = \"lightblue\",\n            alpha = 0.007) +\n    geom_rect(xmin=0,ymin=MEAN_VITAMIN_D + sd(1:MEAN_VITAMIN_D),xmax=N, ymax=maxd,\n            fill = \"lightblue\",\n            alpha = 0.007) \n\n\n\n\n\nShaded area represents points more than a standard deviation outlier.\n\n\n\n\nAnother way to represent the study is with a boxplot variation called a violin plot.\n\n\nCode\nstudy %>% ggplot() + \n  geom_violin(aes(x=subject,y=vitamind),\n              draw_quantiles = c(0.25, 0.5, 0.75)) + \n  labs(x=\"\", y = \"Vitamin D (ng/mL)\", title = \"Vitamin D levels in all subjects\")\n\n\n\n\n\nThe width of this plot shows the proportion of subjects at particular Vitamin D levels. (The horizontal lines indicate the different quartiles of the data)\n\n\n\n\nTo make this more fun, let’s assume we have additional information about the subjects in our trial.\n\n\nCode\nstudy <- cbind(study,\n nationality = replicate(N, sample(c(\"USA\",\"Japan\",\"Europe\"),size=1)),\n weight = rnorm(n=N, mean = 120, sd = 50))"
   },
   {
-    "objectID": "05-summary.html",
-    "href": "05-summary.html",
+    "objectID": "summary.html",
+    "href": "summary.html",
     "title": "9  Final Words",
     "section": "",
     "text": "Download a copy in PDF or ePub."
@@ -133,8 +126,8 @@
     "text": "Problem\nYou tried an intervention and want to see if it worked. How likely is it that the results were chance?\nSolution\nOne of the simplest tests is a “T-Test”, sometimes called a “Student T Test”.\nStatisticians use the concept of P Value to discuss the how often a result might appear to be significant even when it’s not. While this crude measure doesn’t describe all the ways something might happen due to chance, generally the lower the P Value, the better. Professional scientists, especially those who understand statistics, will get touchy if you claim a result based purely on P Values, but for Personal Science purposes, it’s a good start. There is no “correct” cutoff value that can determine the likelihood that something is due to chance alone, but traditionally people assume that anything under 0.05 deserves a closer look.\nHere’s an example for how to do this in Excel.\nSuppose you’d like to know if taking a melotonin supplement will help you sleep longer. You’ve measured your daily sleep, taking the supplements on some days (the “intervention”) and not on others (“control”).\nA simple spreadsheet might look like this:\n\nTrack your sleep under two columns: one for nights when you took the supplement, and the other for nights you didn’t.\nThe built-in Excel statistical function T.TEST will calculate the P-Value when you give it two ranges, the “intervention” (nights we took melotonin) and the “control” (nights without).\nSee the screenshot for the exact formula in this case:\n=T.TEST(array1,array2,tails,type)\nEnter a 1 for tails (because we’re only interested in one measurement, sleep) and a 2 for type (because in this case our samples are not of the same length).\nThe P Value in this example, 0.24, is above 0.05 and therefore we will assume that any difference in sleep between the nights is due to pure chance."
   },
   {
-    "objectID": "06-references.html",
-    "href": "06-references.html",
+    "objectID": "references.html",
+    "href": "references.html",
     "title": "11  References",
     "section": "",
     "text": "Roberts, Seth. 2004. “Self-Experimentation as a Source of New\nIdeas: Ten Examples about Sleep, Mood, Health, and\nWeight.” http://www.escholarship.org/uc/item/2xc2h866."
