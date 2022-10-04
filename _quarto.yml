@@ -2,7 +2,7 @@ project:
   type: book
   output-dir: docs
   preview: 
-      port: 4500
+      port: 4200
 
 execute:
   cache: true

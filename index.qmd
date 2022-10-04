@@ -12,24 +12,3 @@ We'll assume some basic tools.
 
 A good introduction to R is [Hands On Programming with R](https://rstudio-education.github.io/hopr/)
 
-## R Packages
-
-Nearly all of the examples in this book will use the following packages, each of which is probably already familiar if you've done some basic R programming already.
-
-```{r message = FALSE, warning = FALSE}
-library(tidyverse)
-library(lubridate)
-library(kableExtra)
-
-
-```
-
-In addition, specific solutions may require other packages that will be identified in the instructions.
-
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
