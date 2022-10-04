@@ -25,12 +25,12 @@ book:
       chapters:
         - get-started.qmd
         - method.qmd
-        - 04-application.qmd
+        - applications.qmd
         - microbiome.qmd
         - playN-of-1.qmd
-    - 05-summary.qmd
+    - summary.qmd
     - Excelttest.qmd
-    - 06-references.qmd
+    - references.qmd
 
 bibliography:
   - book.bib
