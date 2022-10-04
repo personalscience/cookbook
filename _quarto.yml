@@ -10,7 +10,7 @@ execute:
 
 book:
   title: "Personal Science Cookbook"
-  author: "Friends of Personal Science"
+  #author: "Friends of Personal Science"
   subtitle: "Practical techniques to apply scientific principles to your own life."
   date: last-modified
   cover-image: assets/coverCookbook-quarto.jpg
