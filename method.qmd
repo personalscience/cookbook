@@ -74,3 +74,9 @@ headache_weeks %>% ggplot(aes(x=week, y = week_ave)) +
   labs(title = "Weekly Average for Z", y = "Hours (Weekly Ave)")
 ```
 
+## Granger Causality
+
+Problem: Given two sets of time series data, x and y, how likely is it that one series will influence the other.
+
+Solution: see [Chicken or the Egg? Granger-Causality for the masses](https://www.r-bloggers.com/2013/06/chicken-or-the-egg-granger-causality-for-the-masses/)
+
