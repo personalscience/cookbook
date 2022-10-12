@@ -8,13 +8,13 @@
 
 When a microbiome sample is sequenced by a genetic sequencing machine, the results are presented in large files, called FASTQ, made of the A, C, T, G letters of the genetic code along with other information about measurement accuracy and more. The final report sent to you as a customer, builds from these files using a bioinformatics "pipeline" designed to summarize the genetic code into a more readable format. Embedded within the pipeline are dozens of assumptions about how to best interpret the genetic letters, including how to handle cases where the interpretation is unclear, or even arbitrary. For example, although the [sequence of a common microbe like *Streptococcus mutans*](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=1309&lvl=3&lin=f&keep=1&srchmode=1&unlock) is well-understood, how close does a sequence have to be before the report can confidently describe it as a member of that species? Different pipelines make different assumptions. One might say it can be off by 10 letters, while another might say 5; other pipelines might judge based on the particular microbe. And what should the report do when the sequencer returns less-than-confident results? No sequencer can be perfect all of the time, so by necessity some allowance must be made for how much leeway should be allowed in an interpretation.
 
-## The 'sum to 1' problem
+## Microbiome datasets are compositional
 
 Once the pipeline has been tweaked to give consistent answers for a particular lab, another question awaits. 
 
  Since most tests report the *relative* abundance of a particular microbe, the totals will always sum to 100\%. While this makes sense when you want to know the overall composition of the microbiome, it may not be as useful when studying how the results from one day compares to another.
 
-The reason is called the "sum to 1" problem. To explain this, let's use a concrete example.
+The reason is *compositionality*, sometimes called the "sum to 1" problem. To explain this, let's use a concrete example.
 
 
 ## Example
@@ -102,6 +102,16 @@ Which matters more, absolute values or relative ones? To the extent that the mic
 Is that true? It seems unlikely. Other living populations rise and fall depending on all sorts of factors. Your backyard garden, for example, doesn't have the same absolute volume from one day to another. If you only knew the *relative* percentage of tomatoes versus cucumbers, would you really know much about your harvest?
 
 
+![FIGURE 1 (from @gloor_microbiome_2017)) High-throughput sequencing data are compositional. (A) illustrates that the data observed after sequencing a set of nucleic acids from a bacterial population cannot inform on the absolute abundance of molecules. The number of counts in a high throughput sequencing (HTS) dataset reflect the proportion of counts per feature (OTU, gene, etc.) per sample, multiplied by the sequencing depth. Therefore, only the relative abundances are available. The bar plots in (B) show the difference between the count of molecules and the proportion of molecules for two features, A (red) and B (gray) in three samples. The top bar graphs show the total counts for three samples, and the height of the color illustrates the total count of the feature. When the three samples are sequenced we lose the absolute count information and only have relative abundances, proportions, or “normalized counts” as shown in the bottom bar graph. Note that features A and B in samples 2 and 3 appear with the same relative abundances, even though the counts in the environment are different. The table below in (C) shows real and perceived changes for each sample if we transition from one sample to another.](https://www.frontiersin.org/files/Articles/294209/fmicb-08-02224-HTML/image_m/fmicb-08-02224-g001.jpg)
+
+
+
+## The solution
+This problem has been noticed for more than a hundred years in every field touched by statistics: ecology, economics, geology and more. Whenever you have an instrument that can only measure a subset of something, you must make allowances for the fact that the final measure is reported in units of 100%.
+
+The solution is to make calculations based not on overall *percentages*, but on ratios of each component. The statistics are more complicated, but that's the only way to make the final result usable.
+
+
 
 ## Bottom line
 
@@ -116,3 +126,4 @@ Or consider our garden analogy. Knowing the relative percentage of tomatoes and 
 In other words, treat numbers like "relative abundance" with an appropriate level of skepticism. 
 
 
+@gloor_microbiome_2017
