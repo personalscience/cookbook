@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -202,9 +221,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#a-word-about-microbiome-sequencing" id="toc-a-word-about-microbiome-sequencing" class="nav-link active" data-scroll-target="#a-word-about-microbiome-sequencing"><span class="toc-section-number">7.1</span>  A word about microbiome sequencing</a></li>
-  <li><a href="#the-sum-to-1-problem" id="toc-the-sum-to-1-problem" class="nav-link" data-scroll-target="#the-sum-to-1-problem"><span class="toc-section-number">7.2</span>  The ‘sum to 1’ problem</a></li>
+  <li><a href="#microbiome-datasets-are-compositional" id="toc-microbiome-datasets-are-compositional" class="nav-link" data-scroll-target="#microbiome-datasets-are-compositional"><span class="toc-section-number">7.2</span>  Microbiome datasets are compositional</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="toc-section-number">7.3</span>  Example</a></li>
-  <li><a href="#bottom-line" id="toc-bottom-line" class="nav-link" data-scroll-target="#bottom-line"><span class="toc-section-number">7.4</span>  Bottom line</a></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution"><span class="toc-section-number">7.4</span>  The solution</a></li>
+  <li><a href="#bottom-line" id="toc-bottom-line" class="nav-link" data-scroll-target="#bottom-line"><span class="toc-section-number">7.5</span>  Bottom line</a></li>
   </ul>
 </nav>
     </div>
@@ -231,11 +251,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="7.1" class="anchored" data-anchor-id="a-word-about-microbiome-sequencing"><span class="header-section-number">7.1</span> A word about microbiome sequencing</h2>
 <p>When a microbiome sample is sequenced by a genetic sequencing machine, the results are presented in large files, called FASTQ, made of the A, C, T, G letters of the genetic code along with other information about measurement accuracy and more. The final report sent to you as a customer, builds from these files using a bioinformatics “pipeline” designed to summarize the genetic code into a more readable format. Embedded within the pipeline are dozens of assumptions about how to best interpret the genetic letters, including how to handle cases where the interpretation is unclear, or even arbitrary. For example, although the <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=1309&amp;lvl=3&amp;lin=f&amp;keep=1&amp;srchmode=1&amp;unlock">sequence of a common microbe like <em>Streptococcus mutans</em></a> is well-understood, how close does a sequence have to be before the report can confidently describe it as a member of that species? Different pipelines make different assumptions. One might say it can be off by 10 letters, while another might say 5; other pipelines might judge based on the particular microbe. And what should the report do when the sequencer returns less-than-confident results? No sequencer can be perfect all of the time, so by necessity some allowance must be made for how much leeway should be allowed in an interpretation.</p>
 </section>
-<section id="the-sum-to-1-problem" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="the-sum-to-1-problem"><span class="header-section-number">7.2</span> The ‘sum to 1’ problem</h2>
+<section id="microbiome-datasets-are-compositional" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="microbiome-datasets-are-compositional"><span class="header-section-number">7.2</span> Microbiome datasets are compositional</h2>
 <p>Once the pipeline has been tweaked to give consistent answers for a particular lab, another question awaits.</p>
 <p>Since most tests report the <em>relative</em> abundance of a particular microbe, the totals will always sum to 100%. While this makes sense when you want to know the overall composition of the microbiome, it may not be as useful when studying how the results from one day compares to another.</p>
-<p>The reason is called the “sum to 1” problem. To explain this, let’s use a concrete example.</p>
+<p>The reason is <em>compositionality</em>, sometimes called the “sum to 1” problem. To explain this, let’s use a concrete example.</p>
 </section>
 <section id="example" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="example"><span class="header-section-number">7.3</span> Example</h2>
@@ -481,16 +501,33 @@ ul.task-list li input[type="checkbox"] {
 <p>In 2B, a major change happened – the abundance of one microbe (A) exploded and caused another (B) to plunge. Although another, independent microbe (C) was completely unaffected by this change, when we look only at the relative differences, we might be fooled into thinking that C changed as well, though it didn’t.</p>
 <p>Which matters more, absolute values or relative ones? To the extent that the microbiome is synthesizing or digesting various metabolites in the body, it’s clear that <em>absolute</em> values are what we want to watch. But absolute abundances are too hard to track – you’d need to grab the entire microbiome somehow. So instead we assume that the microbiome <em>as a whole</em> maintains a roughly constant absolute volume and that the only change is the relative abundances.</p>
 <p>Is that true? It seems unlikely. Other living populations rise and fall depending on all sorts of factors. Your backyard garden, for example, doesn’t have the same absolute volume from one day to another. If you only knew the <em>relative</em> percentage of tomatoes versus cucumbers, would you really know much about your harvest?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images/2645a40627bf20b237b9afe5f7a0c047b3af186d.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">FIGURE 1 (from <span class="citation" data-cites="gloor_microbiome_2017">Gloor et al. (<a href="references.html#ref-gloor_microbiome_2017" role="doc-biblioref">2017</a>)</span>)) High-throughput sequencing data are compositional. (A) illustrates that the data observed after sequencing a set of nucleic acids from a bacterial population cannot inform on the absolute abundance of molecules. The number of counts in a high throughput sequencing (HTS) dataset reflect the proportion of counts per feature (OTU, gene, etc.) per sample, multiplied by the sequencing depth. Therefore, only the relative abundances are available. The bar plots in (B) show the difference between the count of molecules and the proportion of molecules for two features, A (red) and B (gray) in three samples. The top bar graphs show the total counts for three samples, and the height of the color illustrates the total count of the feature. When the three samples are sequenced we lose the absolute count information and only have relative abundances, proportions, or “normalized counts” as shown in the bottom bar graph. Note that features A and B in samples 2 and 3 appear with the same relative abundances, even though the counts in the environment are different. The table below in (C) shows real and perceived changes for each sample if we transition from one sample to another.</figcaption><p></p>
+</figure>
+</div>
 </section>
-<section id="bottom-line" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="bottom-line"><span class="header-section-number">7.4</span> Bottom line</h2>
+<section id="the-solution" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="the-solution"><span class="header-section-number">7.4</span> The solution</h2>
+<p>This problem has been noticed for more than a hundred years in every field touched by statistics: ecology, economics, geology and more. Whenever you have an instrument that can only measure a subset of something, you must make allowances for the fact that the final measure is reported in units of 100%.</p>
+<p>The solution is to make calculations based not on overall <em>percentages</em>, but on ratios of each component. The statistics are more complicated, but that’s the only way to make the final result usable.</p>
+</section>
+<section id="bottom-line" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="bottom-line"><span class="header-section-number">7.5</span> Bottom line</h2>
 <p>It’s very hard to make judgements one way or another from simple comparisons of relative abundance changes from one sample to another. Too many factors determine the measured levels of the various microbes.</p>
 <p>Despite this, we know empirically that the overall relative abundances are reasonably stable from one collection to another. Not precisely stable, but at least at the highest, say, phylum levels, the abundances track fairly consistently from day to day. In the oral microbiome, for example, <em>Streptococcus</em> is almost always the lead phylum, with <em>Neissaria</em> and <em>Rothia</em> competing with a few others for second or third place.</p>
 <p>Meanwhile, in larger population studies of say thousands of people sampled multiple times, some significant patterns emerge of microbes that are consistently over- or under-represented in various disease states.</p>
 <p>Or consider our garden analogy. Knowing the relative percentage of tomatoes and cucumbers might be useful if we had data meticulously collected from thousands of other backyard gardens, along with some “metadata” about each gardener’s assessment of their harvest. You might notice, then, that gardeners unhappy with their tomato crop tend to have lower cucumber yield too. Or there might be a strong correlation between tomato yield and herbicide usage – on average. Still, many or perhaps even most gardens will be significantly different. For example, if the relative abundances appear to match the average, you might be fooled into thinking that a garden suffering from an overall poor harvest is fine.</p>
 <p>In other words, treat numbers like “relative abundance” with an appropriate level of skepticism.</p>
+<p><span class="citation" data-cites="gloor_microbiome_2017">Gloor et al. (<a href="references.html#ref-gloor_microbiome_2017" role="doc-biblioref">2017</a>)</span></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-gloor_microbiome_2017" class="csl-entry" role="doc-biblioentry">
+Gloor, Gregory B., Jean M. Macklaim, Vera Pawlowsky-Glahn, and Juan J. Egozcue. 2017. <span>“Microbiome <span>Datasets</span> <span>Are</span> <span>Compositional</span>: <span>And</span> <span>This</span> <span>Is</span> <span>Not</span> <span>Optional</span>.”</span> <em>Frontiers in Microbiology</em> 8. <a href="https://www.frontiersin.org/articles/10.3389/fmicb.2017.02224">https://www.frontiersin.org/articles/10.3389/fmicb.2017.02224</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
