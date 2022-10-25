@@ -25,6 +25,7 @@ book:
         - get-started.qmd
         - method.qmd
         - applications.qmd
+        - ml-example.qmd
         - microbiome.qmd
         - playN-of-1.qmd
     - summary.qmd
