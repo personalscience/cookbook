@@ -28,7 +28,7 @@ for(i in 1:WEEKS){
 
 m
 }
-x <- tibble(date=seq(from = today()-weeks(WEEKS),
+tracking_table <- tibble(date=seq(from = today()-weeks(WEEKS),
                      by = "1 day", length.out = 7*WEEKS),
             headache = sample(c(TRUE,FALSE), 7*WEEKS,
                               prob = c(.05,.95),
@@ -42,25 +42,46 @@ x <- tibble(date=seq(from = today()-weeks(WEEKS),
             z = runif(7*WEEKS, min = -2.5, max = .5) + 8,
             wine = z(0))
 
-x$headache <- x$z<6  # make headaches on days with low sleep
-x[x$headache, "stress"] <- "high"  # make stress on headache days
+tracking_table$headache <- tracking_table$z<6  # make headaches on days with low sleep
+# tracking_table[tracking_table$stress=="high"] <- "high"  # make stress on headache days
 
-knitr::kable( head(x,10), digits = 2) %>%
+knitr::kable( head(tracking_table,10), digits = 2) %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
 
-Now make a linear model that shows `r nrow(x)` rows
+Now make a linear model using the `r nrow(tracking_table)` rows from our dataframe.
 
 ```{r}
 
-m <- lm(headache~icecream+z+wine+stress, data = x)
-summary.lm(m)
-p <- predict.lm(m)
-
-plot(p)
-
+m <- lm(headache~icecream+z+wine+stress, data = tracking_table)
+summary(m)
 ```
 
 Those triple dots ("***") in the right-hand column for Coefficients indicate items of very high significance.
 
 In this case, as expected, there seems to be a strong relationship between both sleep and stress.
+
+A quick yet dramatic way to visualize this uses the `stat_smooth` function of `ggplot`:
+
+
+```{r}
+tracking_table %>% ggplot(aes(y=headache, x=z)) + geom_point() + stat_smooth(formula = y~x, method = "lm", color = "red") +
+facet_grid(headache ~ stress)
+
+```
+We clearly see that headaches always occur on days when Z<6.
+
+And here's what happens if we change the data so headaches always happen when stress is high.
+
+```{r}
+
+tracking_table[tracking_table$stress == "high",]$headache <- TRUE
+
+tracking_table %>% ggplot(aes(y=headache, x=z)) + geom_point() + stat_smooth(formula = y~x, method = "lm", color = "red") +
+facet_grid(headache ~ . + stress)
+
+
+```
+
+As expected, the plot shows headaches either when `z<6` or when stress is high.
+
