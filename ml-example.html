@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Personal Science Cookbook - 9&nbsp; Averages vs n-of-1</title>
+<title>Personal Science Cookbook - 7&nbsp; Machine learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
-<link href="./microbiome.html" rel="prev">
+<link href="./microbiome.html" rel="next">
+<link href="./applications.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -124,6 +124,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
@@ -137,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine learning</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -233,7 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ml-example.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine learning</span></a>
+  <a href="./ml-example.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -243,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./playN-of-1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></a>
+  <a href="./playN-of-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></a>
   </div>
 </li>
       </ul>
@@ -268,20 +270,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#averages-vs-n-of-1" id="toc-averages-vs-n-of-1" class="nav-link active" data-scroll-target="#averages-vs-n-of-1"><span class="toc-section-number">9.1</span>  Averages vs N-of-1</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine learning</span></h1>
 </div>
 
 
@@ -295,93 +291,192 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="averages-vs-n-of-1" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="averages-vs-n-of-1"><span class="header-section-number">9.1</span> Averages vs N-of-1</h2>
-<p>Consider the following case:</p>
-<p>1000 people took Vitamin D for 6 months. We measured their Vitamin D levels before and after, and sure enough: the average levels <em>after</em> are higher than <em>before</em>.</p>
-<p>More specifically, let’s say the average at the beginning of the study is 30 mg/nL, widely considered the absolute minimum for a healthy person.</p>
-<div class="cell" data-hash="playN-of-1_cache/html/setup_958ad68cdc4b71956474dbf8afccaef1">
-
-</div>
-<div class="cell" data-hash="playN-of-1_cache/html/unnamed-chunk-1_e1945066c324f0cc5406191fdb4672b1">
+<p>When you are tracking lots of variables, it can be difficult to spot exactly which ones are driving an effect.</p>
+<p>In this example, we’ve fudged the data so that headaches always happen only on days with less than 6 hours of sleep.</p>
+<p>Also, headache days always have high stress. But sometimes we have high stress even without a headache.</p>
+<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-1_d70fb10d3e934ac42239483bc5e34af7">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>study <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">subject=</span><span class="dv">1</span><span class="sc">:</span>N,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">vitamind=</span><span class="fu">rnorm</span>(<span class="at">n=</span>N,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                               <span class="at">mean=</span>MEAN_VITAMIN_D,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                               <span class="at">sd=</span>MEAN_VITAMIN_D</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                )</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                ) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(subject, <span class="at">vitamind=</span><span class="fu">if_else</span>(vitamind<span class="sc">&lt;</span><span class="dv">0</span>, <span class="dv">0</span>,vitamind))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>study_plot <span class="ot">&lt;-</span> study <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>subject,<span class="at">y=</span>vitamind)) <span class="sc">+</span> </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span> lm, <span class="at">formula=</span> y <span class="sc">~</span> x, <span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span> </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Subject"</span>, <span class="at">y =</span> <span class="st">"Vitamin D (ng/mL)"</span>, <span class="at">title =</span> <span class="st">"Vitamin D levels in all subjects"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>study_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1984</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>WEEKS <span class="ot">&lt;-</span> <span class="dv">140</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>WEEKS){</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">6</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>              <span class="fu">floor</span>(<span class="fu">runif</span>(<span class="dv">1</span>,<span class="at">min=</span><span class="dv">0</span>,<span class="at">max=</span><span class="dv">3</span>))),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        m)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>m</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">date=</span><span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">today</span>()<span class="sc">-</span><span class="fu">weeks</span>(WEEKS),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by =</span> <span class="st">"1 day"</span>, <span class="at">length.out =</span> <span class="dv">7</span><span class="sc">*</span>WEEKS),</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">headache =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>), <span class="dv">7</span><span class="sc">*</span>WEEKS,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                              <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">05</span>,.<span class="dv">95</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                              <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">stress =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"low"</span>,<span class="st">"medium"</span>,<span class="st">"high"</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                            <span class="at">size =</span> <span class="dv">7</span><span class="sc">*</span>WEEKS,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                            <span class="at">replace =</span> <span class="cn">TRUE</span>),        </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">icecream =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>), <span class="dv">7</span><span class="sc">*</span>WEEKS,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                              <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">10</span>,.<span class="dv">90</span>),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                              <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="at">z =</span> <span class="fu">runif</span>(<span class="dv">7</span><span class="sc">*</span>WEEKS, <span class="at">min =</span> <span class="sc">-</span><span class="fl">2.5</span>, <span class="at">max =</span> .<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">8</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">wine =</span> <span class="fu">z</span>(<span class="dv">0</span>))</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>headache <span class="ot">&lt;-</span> x<span class="sc">$</span>z<span class="sc">&lt;</span><span class="dv">6</span>  <span class="co"># make headaches on days with low sleep</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>x[x<span class="sc">$</span>headache, <span class="st">"stress"</span>] <span class="ot">&lt;-</span> <span class="st">"high"</span>  <span class="co"># make stress on headache days</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="fu">head</span>(x,<span class="dv">10</span>), <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images/playN-of-1_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Red line indicates the average slope of the points</figcaption><p></p>
-</figure>
+
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> date </th>
+   <th style="text-align:left;"> headache </th>
+   <th style="text-align:left;"> stress </th>
+   <th style="text-align:left;"> icecream </th>
+   <th style="text-align:right;"> z </th>
+   <th style="text-align:right;"> wine </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 2020-02-18 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> high </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 8.24 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-19 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> high </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 6.60 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-20 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> medium </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:right;"> 7.16 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-21 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> low </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 6.89 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-22 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> high </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 6.04 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-23 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> high </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 7.34 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-24 </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> high </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 5.74 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-25 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> high </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 6.87 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-26 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> low </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 7.23 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2020-02-27 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> high </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:right;"> 6.89 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
 </div>
 </div>
-</div>
-<p>Note that, although the <em>average</em> level is about 30 mg/mL, there are many subjects whose levels are considerable above and below that.</p>
-<div class="cell" data-hash="playN-of-1_cache/html/unnamed-chunk-2_ad8b24696a60e3397e3ce79e13459866">
+<p>Now make a linear model that shows 980 rows</p>
+<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-2_22054ba52f9e4e6a0a9c084de0d6fe28">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>maxd <span class="ot">&lt;-</span> <span class="fu">max</span>(study<span class="sc">$</span>vitamind)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>study_plot <span class="sc">+</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">0</span>,<span class="at">ymin=</span><span class="dv">0</span>,<span class="at">xmax=</span>N, <span class="at">ymax=</span>MEAN_VITAMIN_D <span class="sc">-</span> <span class="fu">sd</span>(<span class="dv">1</span><span class="sc">:</span>MEAN_VITAMIN_D),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"lightblue"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="fl">0.007</span>) <span class="sc">+</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_rect</span>(<span class="at">xmin=</span><span class="dv">0</span>,<span class="at">ymin=</span>MEAN_VITAMIN_D <span class="sc">+</span> <span class="fu">sd</span>(<span class="dv">1</span><span class="sc">:</span>MEAN_VITAMIN_D),<span class="at">xmax=</span>N, <span class="at">ymax=</span>maxd,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> <span class="st">"lightblue"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> <span class="fl">0.007</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(headache<span class="sc">~</span>icecream<span class="sc">+</span>z<span class="sc">+</span>wine<span class="sc">+</span>stress, <span class="at">data =</span> x)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary.lm</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = headache ~ icecream + z + wine + stress, data = x)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.5311 -0.1936 -0.0334  0.1909  0.4773 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   1.898311   0.068765  27.606   &lt;2e-16 ***
+icecreamTRUE  0.022506   0.026731   0.842    0.400    
+z            -0.229571   0.010057 -22.827   &lt;2e-16 ***
+wine          0.006988   0.018085   0.386    0.699    
+stresslow    -0.222677   0.021116 -10.546   &lt;2e-16 ***
+stressmedium -0.235904   0.020223 -11.665   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2562 on 974 degrees of freedom
+Multiple R-squared:  0.5073,    Adjusted R-squared:  0.5048 
+F-statistic: 200.6 on 5 and 974 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">predict.lm</span>(m)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images/playN-of-1_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Shaded area represents points more than a standard deviation outlier.</figcaption><p></p>
-</figure>
+<p><img src="assets/images/ml-example_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
-<p>Another way to represent the study is with a boxplot variation called a <em>violin plot</em>.</p>
-<div class="cell" data-hash="playN-of-1_cache/html/unnamed-chunk-3_10d024f941c3ed5fe2f934b12513e9d6">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>study <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x=</span>subject,<span class="at">y=</span>vitamind),</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">draw_quantiles =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)) <span class="sc">+</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y =</span> <span class="st">"Vitamin D (ng/mL)"</span>, <span class="at">title =</span> <span class="st">"Vitamin D levels in all subjects"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images/playN-of-1_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">The width of this plot shows the proportion of subjects at particular Vitamin D levels. (The horizontal lines indicate the different quartiles of the data)</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-<p>To make this more fun, let’s assume we have additional information about the subjects in our trial.</p>
-<div class="cell" data-hash="playN-of-1_cache/html/unnamed-chunk-4_be6b695b4192015c17d97cf52440cbec">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>study <span class="ot">&lt;-</span> <span class="fu">cbind</span>(study,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> <span class="at">nationality =</span> <span class="fu">replicate</span>(N, <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"USA"</span>,<span class="st">"Japan"</span>,<span class="st">"Europe"</span>),<span class="at">size=</span><span class="dv">1</span>)),</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="at">weight =</span> <span class="fu">rnorm</span>(<span class="at">n=</span>N, <span class="at">mean =</span> <span class="dv">120</span>, <span class="at">sd =</span> <span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<p>Those triple dots (“***“) in the right-hand column for Coefficients indicate items of very high significance.</p>
+<p>In this case, as expected, there seems to be a strong relationship between both sleep and stress.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -484,13 +579,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./microbiome.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></span>
+      <a href="./applications.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Applications</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Final Words</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./microbiome.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Personal Science Cookbook - 7&nbsp; Handling microbiome data</title>
+<title>Personal Science Cookbook - 8&nbsp; Handling microbiome data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./playN-of-1.html" rel="next">
-<link href="./applications.html" rel="prev">
+<link href="./ml-example.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -90,7 +90,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -186,29 +186,34 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./microbiome.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></a>
+  <a href="./ml-example.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./playN-of-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></a>
+  <a href="./microbiome.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./playN-of-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Final Words</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Final Words</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Excelttest.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Appendix: Excel Examples</span></a>
+  <a href="./Excelttest.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix: Excel Examples</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">References</span></a>
   </div>
 </li>
     </ul>
@@ -220,11 +225,11 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#a-word-about-microbiome-sequencing" id="toc-a-word-about-microbiome-sequencing" class="nav-link active" data-scroll-target="#a-word-about-microbiome-sequencing"><span class="toc-section-number">7.1</span>  A word about microbiome sequencing</a></li>
-  <li><a href="#microbiome-datasets-are-compositional" id="toc-microbiome-datasets-are-compositional" class="nav-link" data-scroll-target="#microbiome-datasets-are-compositional"><span class="toc-section-number">7.2</span>  Microbiome datasets are compositional</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="toc-section-number">7.3</span>  Example</a></li>
-  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution"><span class="toc-section-number">7.4</span>  The solution</a></li>
-  <li><a href="#bottom-line" id="toc-bottom-line" class="nav-link" data-scroll-target="#bottom-line"><span class="toc-section-number">7.5</span>  Bottom line</a></li>
+  <li><a href="#a-word-about-microbiome-sequencing" id="toc-a-word-about-microbiome-sequencing" class="nav-link active" data-scroll-target="#a-word-about-microbiome-sequencing"><span class="toc-section-number">8.1</span>  A word about microbiome sequencing</a></li>
+  <li><a href="#microbiome-datasets-are-compositional" id="toc-microbiome-datasets-are-compositional" class="nav-link" data-scroll-target="#microbiome-datasets-are-compositional"><span class="toc-section-number">8.2</span>  Microbiome datasets are compositional</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="toc-section-number">8.3</span>  Example</a></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution"><span class="toc-section-number">8.4</span>  The solution</a></li>
+  <li><a href="#bottom-line" id="toc-bottom-line" class="nav-link" data-scroll-target="#bottom-line"><span class="toc-section-number">8.5</span>  Bottom line</a></li>
   </ul>
 </nav>
     </div>
@@ -233,7 +238,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></h1>
 </div>
 
 
@@ -247,18 +252,18 @@ div.csl-indent {
 
 </header>
 
-<section id="a-word-about-microbiome-sequencing" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="a-word-about-microbiome-sequencing"><span class="header-section-number">7.1</span> A word about microbiome sequencing</h2>
+<section id="a-word-about-microbiome-sequencing" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="a-word-about-microbiome-sequencing"><span class="header-section-number">8.1</span> A word about microbiome sequencing</h2>
 <p>When a microbiome sample is sequenced by a genetic sequencing machine, the results are presented in large files, called FASTQ, made of the A, C, T, G letters of the genetic code along with other information about measurement accuracy and more. The final report sent to you as a customer, builds from these files using a bioinformatics “pipeline” designed to summarize the genetic code into a more readable format. Embedded within the pipeline are dozens of assumptions about how to best interpret the genetic letters, including how to handle cases where the interpretation is unclear, or even arbitrary. For example, although the <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=1309&amp;lvl=3&amp;lin=f&amp;keep=1&amp;srchmode=1&amp;unlock">sequence of a common microbe like <em>Streptococcus mutans</em></a> is well-understood, how close does a sequence have to be before the report can confidently describe it as a member of that species? Different pipelines make different assumptions. One might say it can be off by 10 letters, while another might say 5; other pipelines might judge based on the particular microbe. And what should the report do when the sequencer returns less-than-confident results? No sequencer can be perfect all of the time, so by necessity some allowance must be made for how much leeway should be allowed in an interpretation.</p>
 </section>
-<section id="microbiome-datasets-are-compositional" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="microbiome-datasets-are-compositional"><span class="header-section-number">7.2</span> Microbiome datasets are compositional</h2>
+<section id="microbiome-datasets-are-compositional" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="microbiome-datasets-are-compositional"><span class="header-section-number">8.2</span> Microbiome datasets are compositional</h2>
 <p>Once the pipeline has been tweaked to give consistent answers for a particular lab, another question awaits.</p>
 <p>Since most tests report the <em>relative</em> abundance of a particular microbe, the totals will always sum to 100%. While this makes sense when you want to know the overall composition of the microbiome, it may not be as useful when studying how the results from one day compares to another.</p>
 <p>The reason is <em>compositionality</em>, sometimes called the “sum to 1” problem. To explain this, let’s use a concrete example.</p>
 </section>
-<section id="example" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="example"><span class="header-section-number">7.3</span> Example</h2>
+<section id="example" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="example"><span class="header-section-number">8.3</span> Example</h2>
 <p>Suppose we have the following result for our first test:</p>
 <table class="table">
 <thead>
@@ -508,13 +513,13 @@ div.csl-indent {
 </figure>
 </div>
 </section>
-<section id="the-solution" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="the-solution"><span class="header-section-number">7.4</span> The solution</h2>
+<section id="the-solution" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="the-solution"><span class="header-section-number">8.4</span> The solution</h2>
 <p>This problem has been noticed for more than a hundred years in every field touched by statistics: ecology, economics, geology and more. Whenever you have an instrument that can only measure a subset of something, you must make allowances for the fact that the final measure is reported in units of 100%.</p>
 <p>The solution is to make calculations based not on overall <em>percentages</em>, but on ratios of each component. The statistics are more complicated, but that’s the only way to make the final result usable.</p>
 </section>
-<section id="bottom-line" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="bottom-line"><span class="header-section-number">7.5</span> Bottom line</h2>
+<section id="bottom-line" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="bottom-line"><span class="header-section-number">8.5</span> Bottom line</h2>
 <p>It’s very hard to make judgements one way or another from simple comparisons of relative abundance changes from one sample to another. Too many factors determine the measured levels of the various microbes.</p>
 <p>Despite this, we know empirically that the overall relative abundances are reasonably stable from one collection to another. Not precisely stable, but at least at the highest, say, phylum levels, the abundances track fairly consistently from day to day. In the oral microbiome, for example, <em>Streptococcus</em> is almost always the lead phylum, with <em>Neissaria</em> and <em>Rothia</em> competing with a few others for second or third place.</p>
 <p>Meanwhile, in larger population studies of say thousands of people sampled multiple times, some significant patterns emerge of microbes that are consistently over- or under-represented in various disease states.</p>
@@ -631,13 +636,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./applications.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Applications</span></span>
+      <a href="./ml-example.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine learning</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./playN-of-1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
