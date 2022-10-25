@@ -294,7 +294,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>When you are tracking lots of variables, it can be difficult to spot exactly which ones are driving an effect.</p>
 <p>In this example, we’ve fudged the data so that headaches always happen only on days with less than 6 hours of sleep.</p>
 <p>Also, headache days always have high stress. But sometimes we have high stress even without a headache.</p>
-<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-1_d70fb10d3e934ac42239483bc5e34af7">
+<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-1_19d133931c51ebbbe32c9681257383b0">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -313,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>m</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">date=</span><span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">today</span>()<span class="sc">-</span><span class="fu">weeks</span>(WEEKS),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tracking_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">date=</span><span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">today</span>()<span class="sc">-</span><span class="fu">weeks</span>(WEEKS),</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by =</span> <span class="st">"1 day"</span>, <span class="at">length.out =</span> <span class="dv">7</span><span class="sc">*</span>WEEKS),</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">headache =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>), <span class="dv">7</span><span class="sc">*</span>WEEKS,</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                              <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">05</span>,.<span class="dv">95</span>),</span>
@@ -327,10 +327,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="at">z =</span> <span class="fu">runif</span>(<span class="dv">7</span><span class="sc">*</span>WEEKS, <span class="at">min =</span> <span class="sc">-</span><span class="fl">2.5</span>, <span class="at">max =</span> .<span class="dv">5</span>) <span class="sc">+</span> <span class="dv">8</span>,</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">wine =</span> <span class="fu">z</span>(<span class="dv">0</span>))</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>headache <span class="ot">&lt;-</span> x<span class="sc">$</span>z<span class="sc">&lt;</span><span class="dv">6</span>  <span class="co"># make headaches on days with low sleep</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>x[x<span class="sc">$</span>headache, <span class="st">"stress"</span>] <span class="ot">&lt;-</span> <span class="st">"high"</span>  <span class="co"># make stress on headache days</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>tracking_table<span class="sc">$</span>headache <span class="ot">&lt;-</span> tracking_table<span class="sc">$</span>z<span class="sc">&lt;</span><span class="dv">6</span>  <span class="co"># make headaches on days with low sleep</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># tracking_table[tracking_table$stress=="high"] &lt;- "high"  # make stress on headache days</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="fu">head</span>(x,<span class="dv">10</span>), <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>( <span class="fu">head</span>(tracking_table,<span class="dv">10</span>), <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
@@ -432,49 +432,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 </div>
-<p>Now make a linear model that shows 980 rows</p>
-<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-2_22054ba52f9e4e6a0a9c084de0d6fe28">
+<p>Now make a linear model using the 980 rows from our dataframe.</p>
+<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-2_ea140c03b0518cd1785bc13e58c7a41f">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(headache<span class="sc">~</span>icecream<span class="sc">+</span>z<span class="sc">+</span>wine<span class="sc">+</span>stress, <span class="at">data =</span> x)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary.lm</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">lm</span>(headache<span class="sc">~</span>icecream<span class="sc">+</span>z<span class="sc">+</span>wine<span class="sc">+</span>stress, <span class="at">data =</span> tracking_table)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = headache ~ icecream + z + wine + stress, data = x)
+lm(formula = headache ~ icecream + z + wine + stress, data = tracking_table)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--0.5311 -0.1936 -0.0334  0.1909  0.4773 
+     Min       1Q   Median       3Q      Max 
+-0.46762 -0.21394 -0.03199  0.16852  0.57443 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   1.898311   0.068765  27.606   &lt;2e-16 ***
-icecreamTRUE  0.022506   0.026731   0.842    0.400    
-z            -0.229571   0.010057 -22.827   &lt;2e-16 ***
-wine          0.006988   0.018085   0.386    0.699    
-stresslow    -0.222677   0.021116 -10.546   &lt;2e-16 ***
-stressmedium -0.235904   0.020223 -11.665   &lt;2e-16 ***
+(Intercept)   2.085871   0.073447  28.400   &lt;2e-16 ***
+icecreamTRUE  0.030793   0.028976   1.063    0.288    
+z            -0.272406   0.010301 -26.445   &lt;2e-16 ***
+wine         -0.002729   0.019588  -0.139    0.889    
+stresslow    -0.012375   0.022061  -0.561    0.575    
+stressmedium -0.034324   0.021410  -1.603    0.109    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.2562 on 974 degrees of freedom
-Multiple R-squared:  0.5073,    Adjusted R-squared:  0.5048 
-F-statistic: 200.6 on 5 and 974 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">predict.lm</span>(m)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="assets/images/ml-example_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+Residual standard error: 0.2776 on 974 degrees of freedom
+Multiple R-squared:  0.4216,    Adjusted R-squared:  0.4186 
+F-statistic:   142 on 5 and 974 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Those triple dots (“***“) in the right-hand column for Coefficients indicate items of very high significance.</p>
 <p>In this case, as expected, there seems to be a strong relationship between both sleep and stress.</p>
+<p>A quick yet dramatic way to visualize this uses the <code>stat_smooth</code> function of <code>ggplot</code>:</p>
+<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-3_19861839c7f1bbfdd470a73467d4ca2e">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tracking_table <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>headache, <span class="at">x=</span>z)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">stat_smooth</span>(<span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_grid</span>(headache <span class="sc">~</span> stress)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="assets/images/ml-example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We clearly see that headaches always occur on days when Z&lt;6.</p>
+<p>And here’s what happens if we change the data so headaches always happen when stress is high.</p>
+<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-4_f977eb33cd0033284d186d1872c4c015">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tracking_table[tracking_table<span class="sc">$</span>stress <span class="sc">==</span> <span class="st">"high"</span>,]<span class="sc">$</span>headache <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tracking_table <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>headache, <span class="at">x=</span>z)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">stat_smooth</span>(<span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_grid</span>(headache <span class="sc">~</span> . <span class="sc">+</span> stress)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="assets/images/ml-example_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As expected, the plot shows headaches either when <code>z&lt;6</code> or when stress is high.</p>
 
 
 
