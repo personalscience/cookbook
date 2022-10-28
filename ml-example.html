@@ -479,13 +479,17 @@ F-statistic:   142 on 5 and 974 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>We clearly see that headaches always occur on days when Z&lt;6.</p>
 <p>And here’s what happens if we change the data so headaches always happen when stress is high.</p>
-<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-4_f977eb33cd0033284d186d1872c4c015">
+<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-4_99899da3a0a7deb781fde2585a18104d">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tracking_table[tracking_table<span class="sc">$</span>stress <span class="sc">==</span> <span class="st">"high"</span>,]<span class="sc">$</span>headache <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tracking_table <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>headache, <span class="at">x=</span>z)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">stat_smooth</span>(<span class="at">formula =</span> y<span class="sc">~</span>x, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_grid</span>(headache <span class="sc">~</span> . <span class="sc">+</span> stress)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">facet_grid</span>(headache <span class="sc">~</span> . <span class="sc">+</span> stress) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Adj R2 = "</span>,<span class="fu">signif</span>(<span class="fu">summary</span>(m)<span class="sc">$</span>adj.r.squared, <span class="dv">5</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Intercept ="</span>,<span class="fu">signif</span>(m<span class="sc">$</span>coef[[<span class="dv">1</span>]],<span class="dv">5</span> ),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                     <span class="st">" Slope ="</span>,<span class="fu">signif</span>(m<span class="sc">$</span>coef[[<span class="dv">2</span>]], <span class="dv">5</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                     <span class="st">" P ="</span>,<span class="fu">signif</span>(<span class="fu">summary</span>(m)<span class="sc">$</span>coef[<span class="dv">2</span>,<span class="dv">4</span>], <span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="assets/images/ml-example_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
