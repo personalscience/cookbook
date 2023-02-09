@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.145">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./microbiome.html" rel="next">
+<link href="./headaches.html" rel="next">
 <link href="./applications.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -240,29 +240,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></a>
+  <a href="./headaches.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">headaches</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./playN-of-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></a>
+  <a href="./microbiome.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./playN-of-1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Averages vs n-of-1</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Final Words</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Final Words</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Excelttest.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Appendix: Excel Examples</span></a>
+  <a href="./Excelttest.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Appendix: Excel Examples</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">References</span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">References</span></a>
   </div>
 </li>
     </ul>
@@ -270,7 +275,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#multiple-regression" id="toc-multiple-regression" class="nav-link active" data-scroll-target="#multiple-regression"><span class="toc-section-number">7.1</span>  Multiple regression</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -285,16 +296,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
 </header>
 
+<section id="multiple-regression" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="multiple-regression"><span class="header-section-number">7.1</span> Multiple regression</h2>
 <p>When you are tracking lots of variables, it can be difficult to spot exactly which ones are driving an effect.</p>
 <p>In this example, we’ve fudged the data so that headaches always happen only on days with less than 6 hours of sleep.</p>
 <p>Also, headache days always have high stress. But sometimes we have high stress even without a headache.</p>
-<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-1_19d133931c51ebbbe32c9681257383b0">
+<div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-1_dcbb9cf7424701388b32c492184de93f">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -313,7 +327,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>m</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tracking_table <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">date=</span><span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">today</span>()<span class="sc">-</span><span class="fu">weeks</span>(WEEKS),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>tracking_table <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">date=</span><span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">today</span>()<span class="sc">-</span><span class="fu">weeks</span>(WEEKS),</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">by =</span> <span class="st">"1 day"</span>, <span class="at">length.out =</span> <span class="dv">7</span><span class="sc">*</span>WEEKS),</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">headache =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>), <span class="dv">7</span><span class="sc">*</span>WEEKS,</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                              <span class="at">prob =</span> <span class="fu">c</span>(.<span class="dv">05</span>,.<span class="dv">95</span>),</span>
@@ -348,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> 2020-02-18 </td>
+   <td style="text-align:left;"> 2020-04-15 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> high </td>
    <td style="text-align:left;"> FALSE </td>
@@ -356,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-19 </td>
+   <td style="text-align:left;"> 2020-04-16 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> high </td>
    <td style="text-align:left;"> FALSE </td>
@@ -364,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-20 </td>
+   <td style="text-align:left;"> 2020-04-17 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> medium </td>
    <td style="text-align:left;"> TRUE </td>
@@ -372,7 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-21 </td>
+   <td style="text-align:left;"> 2020-04-18 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> low </td>
    <td style="text-align:left;"> FALSE </td>
@@ -380,7 +394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-22 </td>
+   <td style="text-align:left;"> 2020-04-19 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> high </td>
    <td style="text-align:left;"> FALSE </td>
@@ -388,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-23 </td>
+   <td style="text-align:left;"> 2020-04-20 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> high </td>
    <td style="text-align:left;"> FALSE </td>
@@ -396,7 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-24 </td>
+   <td style="text-align:left;"> 2020-04-21 </td>
    <td style="text-align:left;"> TRUE </td>
    <td style="text-align:left;"> high </td>
    <td style="text-align:left;"> FALSE </td>
@@ -404,7 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-25 </td>
+   <td style="text-align:left;"> 2020-04-22 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> high </td>
    <td style="text-align:left;"> FALSE </td>
@@ -412,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-26 </td>
+   <td style="text-align:left;"> 2020-04-23 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> low </td>
    <td style="text-align:left;"> FALSE </td>
@@ -420,7 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    <td style="text-align:right;"> 0 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 2020-02-27 </td>
+   <td style="text-align:left;"> 2020-04-24 </td>
    <td style="text-align:left;"> FALSE </td>
    <td style="text-align:left;"> high </td>
    <td style="text-align:left;"> FALSE </td>
@@ -464,7 +478,7 @@ Multiple R-squared:  0.4216,    Adjusted R-squared:  0.4186
 F-statistic:   142 on 5 and 974 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>Those triple dots (“***“) in the right-hand column for Coefficients indicate items of very high significance.</p>
+<p>Those triple dots (“***”) in the right-hand column for Coefficients indicate items of very high significance.</p>
 <p>In this case, as expected, there seems to be a strong relationship between both sleep and stress.</p>
 <p>A quick yet dramatic way to visualize this uses the <code>stat_smooth</code> function of <code>ggplot</code>:</p>
 <div class="cell" data-hash="ml-example_cache/html/unnamed-chunk-3_19861839c7f1bbfdd470a73467d4ca2e">
@@ -498,6 +512,7 @@ F-statistic:   142 on 5 and 974 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>As expected, the plot shows headaches either when <code>z&lt;6</code> or when stress is high.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -541,7 +556,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -577,24 +609,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
@@ -605,8 +655,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./microbiome.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Handling microbiome data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./headaches.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">headaches</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
